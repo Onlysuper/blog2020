@@ -330,12 +330,33 @@ $white-back:#fff;
           color: #3f51b5;
           position: relative;
           display: inline-block;
-          padding-bottom: 16px;
+          margin-bottom: 16px;
+          cursor: pointer;
+          &:after {
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 2px;
+              bottom: 0;
+              left: 0;
+              background-color: #3f51b5;
+              visibility: hidden;
+              -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+              -webkit-transition: 0.4s ease-in-out;
+              transition: 0.4s ease-in-out;
+          }
+          &:hover:after{
+              visibility:initial;
+              -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+          }
         }
         .footer{
           padding: 12px 0px 8px;
           border-top: 1px solid #ddd;
           .tip{
+              cursor: pointer;
               display: inline-block;
               margin: 0 8px 8px 0;
               border-radius: 2px;
