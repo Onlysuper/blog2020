@@ -69,20 +69,84 @@
       </div>
     </header>
     <div class="container">
-      <div>
         <section>
           <hgroup>
-            <h1>PRC</h1>
-            <p>The People's Republic of China was born in 1949...</p>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
           </hgroup>
         </section>
         <section>
           <hgroup>
-            <h1>PRC</h1>
-            <p>The People's Republic of China was born in 1949...</p>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
           </hgroup>
         </section>
-      </div>
+        <section>
+          <hgroup>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
+          </hgroup>
+        </section>
+        <section>
+          <hgroup>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
+          </hgroup>
+        </section>
+        <section>
+          <hgroup>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
+          </hgroup>
+        </section>
+        <section>
+          <hgroup>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
+          </hgroup>
+        </section>
+        <section>
+          <hgroup>
+            <time>2019-01-02</time>
+            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <div class="footer">
+              <a class="tip success">vue.js</a>
+              <a class="tip success">前端</a>
+              <a class="tip success">小技巧</a>
+            </div>
+          </hgroup>
+        </section>
+        
       
     </div>
   </main>
@@ -162,15 +226,17 @@ $white-back:#fff;
     left: 200px;
     right: 0;
     min-height: 100%;
+    height: 100%;
     -webkit-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
     header{
       background:$bs-main;
       color:#fff;
-      height: 150px;
+      min-height: 150px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -193,8 +259,12 @@ $white-back:#fff;
         max-width: 960px;
         width: 100%;
         margin: 0 auto;
+        h2{
+          padding-top: 20px;
+          box-sizing: border-box;
+        }
         ul.nav{
-          margin-top: 20px;
+          margin-top: 10px;
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
@@ -203,7 +273,7 @@ $white-back:#fff;
             padding:10px 20px;
             white-space: nowrap;
             cursor: pointer;
-            &:hover{
+            &:hover,&:active{
               background:#fff;
               color: $bs-active;
             }
@@ -211,7 +281,7 @@ $white-back:#fff;
         }
       }
       &:last-of-type{
-        padding-bottom: 20px;
+        // padding-bottom: 20px;
       }
     }
     // 内容样式
@@ -220,6 +290,45 @@ $white-back:#fff;
       max-width: 960px;
       width:100%;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      section{
+        background:#fff;
+        box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
+        margin: 10px;
+        flex: 1;
+        min-width: 300px;
+        padding:20px;
+        time{
+            line-height: 24px;
+            font-weight: bold;
+            display: block;
+            margin: 0 0 10px;
+        }
+        h3{
+          color: #3f51b5;
+          position: relative;
+          display: inline-block;
+          padding-bottom: 16px;
+        }
+        .footer{
+          padding: 12px 0px 8px;
+          border-top: 1px solid #ddd;
+          .tip{
+              display: inline-block;
+              margin: 0 8px 8px 0;
+              border-radius: 2px;
+              color:#fff;
+              width: 80px;
+              text-align: center;
+              &.success{
+                background:#8bc34a
+              }
+          }
+        }
+        
+      }
     }
 }
 #menu{
@@ -245,7 +354,7 @@ $white-back:#fff;
     // padding: 20px 0;
     background:$bs-main;
     color:#fff;
-    height:150px;
+    min-height:150px;
     flex: 0 0 150px;
     display: flex;
     flex-direction: column;
@@ -254,7 +363,7 @@ $white-back:#fff;
        padding-top: 20px;
     }
     &:last-of-type{
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
 
   }
@@ -342,7 +451,7 @@ $white-back:#fff;
 @media screen and (max-width: 1240px){
   #main {
     left: 0;
-    // padding-left:0;
+    
   }
   #menu {
     z-index: 99;
