@@ -46,7 +46,7 @@
   <main id="main" :class="[{show:wrapperShow}]">
     <header>
       <div class="oparte">
-        <button :class="['button',{}]" @click="drawClick">点我</button>
+        <button :class="['button',{show:wrapperShow}]" @click="drawClick">点我</button>
       </div>
       <div class="nav-box">
         <h2>标签: JavaScript</h2>
@@ -119,6 +119,7 @@ methods:{
 
 <style lang="scss" scoped>
 $main-color:#94d7c5;
+$main-back:#f3f7f8;
 $white-back:#fff;
 .wrapper{
   width: 100%;
@@ -133,7 +134,8 @@ $white-back:#fff;
   transform: rotate(450deg);
 }
 #main {
-    // background:$main-color;
+    // backgroundnd
+    background:$main-back;
     position: relative;
     left: 240px;
     // padding-left: 240px;
@@ -145,13 +147,22 @@ $white-back:#fff;
     header{
       background:$main-color;
       color:#fff;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .oparte{
+        position: fixed;
+        height: 56px;
+      }
       .nav-box{
         padding: 0 20px;
+        padding-top: 56px;
         h2{
           
         }
         ul.nav{
-          margin-top: 10px;
+          margin-top: 20px;
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
@@ -191,6 +202,8 @@ $white-back:#fff;
     text-align: center;
     padding: 20px 0;
     background:$main-color;
+    color:#fff;
+    height:150px;
   }
   .option{
     flex: 1;
@@ -236,6 +249,10 @@ $white-back:#fff;
     outline: none;
     transition: all 0.5s;
     cursor: pointer;
+    color:#fff;
+    &.show{
+      transform: rotate(450deg);
+    }
 }
 
 
