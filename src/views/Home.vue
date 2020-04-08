@@ -1,5 +1,5 @@
 <template>
-<div class="wrapper" :style="{left:wrapperShow||screenWidth<=1204?'0':'-240px'}">
+<div class="wrapper" :style="{left:wrapperShow||screenWidth<=1204?'0':'-200px'}">
   <aside id="menu" :class="['sidebar',{show:wrapperShow}]">
         <header>
           <div class="head-img">
@@ -138,9 +138,10 @@ methods:{
 </style>
 
 <style lang="scss" scoped>
-$main-color:#94d7c5;
-$main-back:#f3f7f8;
-$text-color:#727272;
+$bs-main:#94d7c5;
+$bs-active:#94d7c5;
+$bs-back:#f3f7f8;
+$bs-text:#727272;
 
 $white-back:#fff;
 .wrapper{
@@ -156,9 +157,9 @@ $white-back:#fff;
   transform: rotate(450deg);
 }
 #main {
-    background:$main-back;
+    background:$bs-back;
     position: absolute;
-    left: 240px;
+    left: 200px;
     right: 0;
     min-height: 100%;
     -webkit-transition: 0.4s ease-in-out;
@@ -167,7 +168,7 @@ $white-back:#fff;
     flex-direction: column;
     align-items: center;
     header{
-      background:$main-color;
+      background:$bs-main;
       color:#fff;
       height: 150px;
       display: flex;
@@ -199,9 +200,13 @@ $white-back:#fff;
           justify-content: flex-start;
           list-style: none;
           li{
-            padding-right:20px;
+            padding:10px 20px;
             white-space: nowrap;
             cursor: pointer;
+            &:hover{
+              background:#fff;
+              color: $bs-active;
+            }
           }
         }
       }
@@ -226,7 +231,7 @@ $white-back:#fff;
   // padding-left: 0;
   bottom: 0;
   z-index: 66;
-  width: 240px;
+  width: 200px;
   min-height: 100%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   will-change: transform, -webkit-transform;
@@ -238,7 +243,7 @@ $white-back:#fff;
     width: 100%;
     text-align: center;
     // padding: 20px 0;
-    background:$main-color;
+    background:$bs-main;
     color:#fff;
     height:150px;
     flex: 0 0 150px;
@@ -255,9 +260,8 @@ $white-back:#fff;
   }
   .option{
     flex: 1;
-  }
-  
-  .option ul li {
+    margin-top: 20px;
+    ul li {
       display: flex;
       align-items: center;
       width:195px;
@@ -271,10 +275,14 @@ $white-back:#fff;
       transition-property: color;
       transition-duration: 0.4s;
       transition: all 1s;
-      // .option ul li {
-        transform: translate(0,0);
-      // }
+      transform: translate(0,0);
+      &:hover{
+        color:$bs-main
+      }
+    }
   }
+  
+ 
   &:not(.show){
     .option ul li{
       &:nth-child(odd){
