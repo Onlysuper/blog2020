@@ -46,7 +46,13 @@
   <main id="main" :class="[{show:wrapperShow}]">
     <header>
       <div class="oparte">
-        <button :class="['button',{show:wrapperShow}]" @click="drawClick">点我</button>
+        <button :class="['button',{show:wrapperShow}]" @click="drawClick">
+          <span class="icon iconfont icon-caidan"></span>
+        </button>
+        <div class="search">
+          <input/>
+          <span class="icon iconfont icon-tubiao_huaban"></span>
+        </div>
       </div>
       <div class="nav-box">
         <h2>标签: JavaScript</h2>
@@ -62,8 +68,22 @@
         <!-- </nav> -->
       </div>
     </header>
-    <div class="main">
-
+    <div class="container">
+      <div>
+        <section>
+          <hgroup>
+            <h1>PRC</h1>
+            <p>The People's Republic of China was born in 1949...</p>
+          </hgroup>
+        </section>
+        <section>
+          <hgroup>
+            <h1>PRC</h1>
+            <p>The People's Republic of China was born in 1949...</p>
+          </hgroup>
+        </section>
+      </div>
+      
     </div>
   </main>
   <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
@@ -122,7 +142,7 @@ $main-color:#94d7c5;
 $main-back:#f3f7f8;
 $white-back:#fff;
 .wrapper{
-  width: 100%;
+  right: 0;
   height: 100vh;
   position: fixed;
   top: 0;
@@ -134,16 +154,16 @@ $white-back:#fff;
   transform: rotate(450deg);
 }
 #main {
-    // backgroundnd
     background:$main-back;
-    position: relative;
+    position: absolute;
     left: 240px;
-    // padding-left: 240px;
+    right: 0;
     min-height: 100%;
     -webkit-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
     display: flex;
     flex-direction: column;
+    align-items: center;
     header{
       background:$main-color;
       color:#fff;
@@ -151,16 +171,20 @@ $white-back:#fff;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width:100%;
       .oparte{
-        position: fixed;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        // position: fixed;
         height: 56px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
       }
       .nav-box{
         padding: 0 20px;
-        padding-top: 56px;
-        h2{
-          
-        }
         ul.nav{
           margin-top: 20px;
           display: flex;
@@ -170,15 +194,16 @@ $white-back:#fff;
           li{
             padding:0 20px;
             white-space: nowrap;
-            // flex: 1;
           }
         }
-        // }
       }
     }
-    body{
-      flex: 1;
-      background: #fff;
+    // 内容样式
+    .container{
+      padding: 20px;
+      max-width: 960px;
+      width:100%;
+      box-sizing: border-box;
     }
 }
 #menu{
@@ -187,6 +212,7 @@ $white-back:#fff;
   position: absolute;
   top: 0;
   left: 0;
+  // padding-left: 0;
   bottom: 0;
   z-index: 66;
   width: 240px;
@@ -240,6 +266,7 @@ $white-back:#fff;
 }
 
 .button {
+    // font-size: 100px;
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0);
@@ -250,9 +277,23 @@ $white-back:#fff;
     transition: all 0.5s;
     cursor: pointer;
     color:#fff;
+    text-align: left;
     &.show{
-      transform: rotate(450deg);
+      // transform: rotate(450deg);
     }
+    .icon{
+      font-size: 30px;
+    }
+}
+.search{
+  input{
+    background: none;
+    border:0;
+    outline: none;
+  }
+  .icon{
+    font-size: 30px;
+  }
 }
 
 
@@ -262,6 +303,7 @@ $white-back:#fff;
 @media screen and (max-width: 1240px){
   #main {
     left: 0;
+    // padding-left:0;
   }
   #menu {
     z-index: 99;
@@ -301,4 +343,8 @@ $white-back:#fff;
       opacity: .3;
     }
 }
+
+
+
+
 </style>
