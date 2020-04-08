@@ -1,10 +1,13 @@
 <template>
-<div id="wrapper" class="home">
-  <aside id="menu" :class="['sidebar',menuClass]">
-        <!-- <div class="headSculpture">
-            <img src="images/headSculpture.jpg" alt="">
-            <p>昵称：粉红色少女</p>
-         </div> -->
+<div class="wrapper" :style="{left:wrapperShow||screenWidth<=1204?'0':'-240px'}">
+  <aside id="menu" :class="['sidebar',{show:wrapperShow}]">
+        <header>
+          <div>
+            <img src="../assets/images/admin-head.png">
+          </div>
+          <p>Dunizb</p>
+          <p>dunizb@foxmail.com</p>
+        </header>
          <div class="option">
             <ul>
                <li><img src="images/home.png" alt="">
@@ -40,26 +43,41 @@
             </ul>
         </div>
   </aside>
-  <main id="main">
-    <button :class="['button',{'rotateBut':rotateBut}]" @click="hideMenu">点我</button>
-    我是内容
+  <main id="main" :class="[{show:wrapperShow}]">
+    <header>
+      <div class="oparte">
+        <button :class="['button',{}]" @click="drawClick">点我</button>
+      </div>
+      <div class="nav-box">
+        <h2>标签: JavaScript</h2>
+        <!-- <nav> -->
+          <ul class="nav">
+            <li>标签</li>
+            <li>标签</li>
+            <li>标签</li>
+            <li>标签</li>
+            <li>标签</li>
+            <li>标签</li>
+          </ul>
+        <!-- </nav> -->
+      </div>
+    </header>
+    <div class="main">
+
+    </div>
   </main>
-  <div @click="hideMenu" :class="['mask',{in:maskIn}]" id="mask"></div>
+  <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
 </div>
 </template>
 
 <script>
-// import "src/assets/scss/sidebar.scss"
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   data(){
     return {
       screenWidth: document.documentElement.clientWidth,//屏幕宽度
-      menuClass:'', // menu classname
-      // rotateBut:false,// 按钮是否旋转45度
+      wrapperShow:false,
     }
   },
   components: {
@@ -67,42 +85,29 @@ export default {
   },
   watch:{
     'screenWidth':function(val){ //监听屏幕宽度变化
-        if(document.body.clientWidth>1204){
-          this.menuClass=""
-        }
+       this.winSizeChange(val)
     }
 },
 computed:{
   // 是否显示遮罩
   maskIn(){
-    return this.menuClass=='show'
+    return this.wrapperShow&&this.screenWidth<=1204;
   },
-  rotateBut(){
-    if(this.screenWidth>1204){
-      return this.menuClass=='hide';
-    }else{
-       return this.menuClass=='show' 
-    }
-  }
 },
 methods:{
-    hideMenu(){
-      if(this.screenWidth>1204){
-        // pc端
-        let isHide = this.menuClass=='hide';
-        this.menuClass=isHide?'':'hide'
-      }else{
-        // 移动端
-        let isHide = this.menuClass=='hide'||this.menuClass==''
-        this.menuClass=isHide?'show':'hide'
-      }
+  winSizeChange(val){
+    this.wrapperShow=val>1204
+  },
+  drawClick(){
+      this.wrapperShow=!this.wrapperShow
     }
   },
   mounted() {
     var _this = this;
+    let winWidth = document.documentElement.clientWidth
+    _this.winSizeChange(winWidth)
     window.onresize = function(){ // 定义窗口大小变更通知事件
         _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
-        // _this.screenHeight = document.documentElement.clientHeight; //窗口高度
     };
   }
 }
@@ -113,36 +118,84 @@ methods:{
 </style>
 
 <style lang="scss" scoped>
-.home{
+$main-color:#94d7c5;
+$white-back:#fff;
+.wrapper{
   width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: 0.4s cubic-bezier(0.18, 0.81, 0.3, 0.89);
+  transition: 0.4s cubic-bezier(0.18, 0.81, 0.3, 0.89);
 }
 .rotateBut{
   transform: rotate(450deg);
 }
 #main {
+    // background:$main-color;
     position: relative;
     left: 240px;
+    // padding-left: 240px;
     min-height: 100%;
     -webkit-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    header{
+      background:$main-color;
+      color:#fff;
+      .nav-box{
+        padding: 0 20px;
+        h2{
+          
+        }
+        ul.nav{
+          margin-top: 10px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          list-style: none;
+          li{
+            padding:0 20px;
+            white-space: nowrap;
+            // flex: 1;
+          }
+        }
+        // }
+      }
+    }
+    body{
+      flex: 1;
+      background: #fff;
+    }
 }
 #menu{
   overflow-x: hidden;
-  background-color: #BE04A7;
   height: 100%;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   z-index: 66;
   width: 240px;
   min-height: 100%;
-  // background: #fff;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
-  -webkit-transition: 0.4s cubic-bezier(0.18, 0.81, 0.3, 0.89);
-  transition: 0.4s cubic-bezier(0.18, 0.81, 0.3, 0.89);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   will-change: transform, -webkit-transform;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  header{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background:$main-color;
+  }
+  .option{
+    flex: 1;
+  }
+  
   .option ul li {
       display: flex;
       align-items: center;
@@ -156,25 +209,33 @@ methods:{
       transition-property: color;
       transition-duration: 0.4s;
       transition: all 1s;
-      .option ul li {
+      // .option ul li {
         transform: translate(0,0);
+      // }
+  }
+  &:not(.show){
+    .option ul li{
+      &:nth-child(odd){
+        transform: translate(50%,0);
       }
-  }
-  &.hide {
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    &+ #main {
-        left: 0;
-    }
-    .option ul li {
-        &:nth-child(even){
-          transform: translate(-200px,0);
-        }
-        &:nth-child(odd){
-            transform: translate(200px,0);
-        }
+      &:nth-child(even){
+        transform: translate(80%,0);
+        // background: translate(-100%,0);
+      }
     }
   }
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 0;
+    outline: none;
+    transition: all 0.5s;
+    cursor: pointer;
 }
 
 
@@ -188,16 +249,16 @@ methods:{
   #menu {
     z-index: 99;
     box-shadow: none;
-    -webkit-transform: translateX(-100%);
+    position: fixed;
     transform: translateX(-100%);
+    
       &.show {
-        -webkit-transform: translateX(0);
         transform: translateX(0);
         .option ul li {
           transform: translate(0,0);
         }
         &+ #main {
-            left: 0px;
+            left: 0;
         }
       }
   }
