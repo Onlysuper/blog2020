@@ -73,7 +73,7 @@
         <section>
           <hgroup>
             <time>2019-01-02</time>
-            <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+            <h3 @click="toAricle">小技巧|使用Vue.js的Mixins复用你的代码s</h3>
             <div class="footer">
               <a class="tip success">vue.js</a>
               <a class="tip success">前端</a>
@@ -181,6 +181,11 @@ computed:{
   },
 },
 methods:{
+  toAricle(){
+    this.$router.push({
+      name:'Article'
+    })
+  },
   winSizeChange(val){
     this.wrapperShow=val>1204
   },
