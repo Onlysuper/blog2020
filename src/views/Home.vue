@@ -62,9 +62,9 @@
             <li>标签</li>
             <li>标签</li>
             <li>标签</li>
+            <!-- <li>标签</li>
             <li>标签</li>
-            <li>标签</li>
-            <li>标签</li>
+            <li>标签</li> -->
           </ul>
         <!-- </nav> -->
       </div>
@@ -276,6 +276,7 @@ $white-back:#fff;
       }
       .nav-box{
         padding: 0 20px;
+        box-sizing: border-box;
         max-width: 960px;
         width: 100%;
         margin: 0 auto;
@@ -318,7 +319,7 @@ $white-back:#fff;
         box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
         margin: 10px;
         flex: 1;
-        min-width: 300px;
+        min-width: 250px;
         padding:20px;
         time{
             line-height: 24px;
