@@ -2,7 +2,7 @@
 <div class="wrapper" :style="{left:wrapperShow||screenWidth<=1204?'0':'-240px'}">
   <aside id="menu" :class="['sidebar',{show:wrapperShow}]">
         <header>
-          <div>
+          <div class="head-img">
             <img src="../assets/images/admin-head.png">
           </div>
           <p>Dunizb</p>
@@ -140,6 +140,8 @@ methods:{
 <style lang="scss" scoped>
 $main-color:#94d7c5;
 $main-back:#f3f7f8;
+$text-color:#727272;
+
 $white-back:#fff;
 .wrapper{
   right: 0;
@@ -172,6 +174,7 @@ $white-back:#fff;
       flex-direction: column;
       justify-content: space-between;
       width:100%;
+     
       .oparte{
         width: 100%;
         box-sizing: border-box;
@@ -182,9 +185,13 @@ $white-back:#fff;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        //  max-width: 960px;
       }
       .nav-box{
         padding: 0 20px;
+        max-width: 960px;
+        width: 100%;
+        margin: 0 auto;
         ul.nav{
           margin-top: 20px;
           display: flex;
@@ -192,10 +199,14 @@ $white-back:#fff;
           justify-content: flex-start;
           list-style: none;
           li{
-            padding:0 20px;
+            padding-right:20px;
             white-space: nowrap;
+            cursor: pointer;
           }
         }
+      }
+      &:last-of-type{
+        padding-bottom: 20px;
       }
     }
     // 内容样式
@@ -226,10 +237,21 @@ $white-back:#fff;
   header{
     width: 100%;
     text-align: center;
-    padding: 20px 0;
+    // padding: 20px 0;
     background:$main-color;
     color:#fff;
     height:150px;
+    flex: 0 0 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .head-img{
+       padding-top: 20px;
+    }
+    &:last-of-type{
+      padding-bottom: 20px;
+    }
+
   }
   .option{
     flex: 1;
@@ -239,10 +261,11 @@ $white-back:#fff;
       display: flex;
       align-items: center;
       width:195px;
-      margin-top: 15px;
-      padding-left:25px;
+      // margin-top: 15px;
+      padding:0 20px;
       cursor: pointer;
-      color: #D0D1D7;
+      color: #727272;
+      line-height: 44px;
       transform: translateZ(0);
       position: relative;
       transition-property: color;
@@ -283,6 +306,14 @@ $white-back:#fff;
     }
     .icon{
       font-size: 30px;
+    }
+    &:active{
+        // color:yellow;
+        transform:scale(0.67);
+        -ms-transform:rotate(0.67); 	/* IE 9 */
+        -moz-transform:rotate(0.67); 	/* Firefox */
+        -webkit-transform:rotate(0.67); /* Safari 和 Chrome */
+        -o-transform:rotate(0.67); 	/* Opera */
     }
 }
 .search{
