@@ -43,9 +43,9 @@
             </ul>
         </div>
   </aside>
-  <main id="main" :class="[{show:wrapperShow}]">
+  <main ref="scrollBox" @scroll="scrollFn" id="main" :class="[{show:wrapperShow}]">
     <header>
-      <div class="oparte">
+      <div :class="['oparte',{show:wrapperShow,fixed:scrollTop>54}]">
         <button :class="['button',{show:wrapperShow}]" @click="drawClick">
           <span class="icon iconfont icon-caidan"></span>
         </button>
@@ -54,6 +54,7 @@
           <span class="icon iconfont icon-tubiao_huaban"></span>
         </div>
       </div>
+      <div style="height:54px;"></div>
       <div class="nav-box">
         <h2>标签: JavaScript</h2>
         <!-- <nav> -->
@@ -160,6 +161,7 @@ export default {
   name: 'Home',
   data(){
     return {
+      scrollTop:0,
       screenWidth: document.documentElement.clientWidth,//屏幕宽度
       wrapperShow:false,
     }
@@ -182,6 +184,9 @@ methods:{
   winSizeChange(val){
     this.wrapperShow=val>1204
   },
+  scrollFn() {
+    this.scrollTop=this.$refs.scrollBox.scrollTop
+  },
   drawClick(){
       this.wrapperShow=!this.wrapperShow
     }
@@ -193,7 +198,11 @@ methods:{
     window.onresize = function(){ // 定义窗口大小变更通知事件
         _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
     };
+    window.addEventListener("scroll",this.handleScroll); 
   }
+  // destroyed() {
+  //   document.removeEventListener('scroll', this.handleScroll)
+  // }
 }
 </script>
 
@@ -241,18 +250,29 @@ $white-back:#fff;
       flex-direction: column;
       justify-content: space-between;
       width:100%;
-     
       .oparte{
-        width: 100%;
+        background:$bs-main;
+        z-index: 10;
+        transition: padding-left 0.6s ease-in-out, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
+        // min-width: 1000px;
+        // transition: 0.4s ease-in-out;
+        left: 0;
+        right: 0;
         box-sizing: border-box;
         padding: 0 20px;
-        // position: fixed;
+        position: fixed;
         height: 56px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        //  max-width: 960px;
+        &.show{
+          left: 200px;
+          width: auto;
+        }
+        &.fixed{
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
       }
       .nav-box{
         padding: 0 20px;
@@ -369,7 +389,8 @@ $white-back:#fff;
   }
   .option{
     flex: 1;
-    margin-top: 20px;
+    padding-top: 20px;
+    overflow: auto;
     ul li {
       display: flex;
       align-items: center;
@@ -451,7 +472,12 @@ $white-back:#fff;
 @media screen and (max-width: 1240px){
   #main {
     left: 0;
-    
+    .oparte{
+      &.show{
+        left: 0 !important;
+        width: auto;
+      }
+    }
   }
   #menu {
     z-index: 99;
