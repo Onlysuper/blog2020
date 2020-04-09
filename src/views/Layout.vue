@@ -5,8 +5,10 @@
           <div class="head-img">
             <img src="../assets/images/admin-head.png">
           </div>
-          <p>Dunizb</p>
-          <p>dunizb@foxmail.com</p>
+          <div>
+            <p class="nick-name">Dunizb</p>
+            <p class="sign-text">dunizb@foxmail.com</p>
+          </div>
         </header>
          <div class="option">
             <ul>
@@ -62,9 +64,6 @@
             <li>标签</li>
             <li>标签</li>
             <li>标签</li>
-            <!-- <li>标签</li>
-            <li>标签</li>
-            <li>标签</li> -->
           </ul>
         <!-- </nav> -->
       </div>
@@ -165,10 +164,11 @@ methods:{
 </style>
 
 <style lang="scss" scoped>
-$bs-main:#94d7c5;
+$bs-color:#5bc379;
+$bs-hover:#e5f6eb;
 $bs-active:#94d7c5;
 $bs-back:#f3f7f8;
-$bs-text:#727272;
+$bs-text:#6e6e6e;
 
 $white-back:#fff;
 .gotop{
@@ -189,7 +189,8 @@ $white-back:#fff;
   transform: rotate(450deg);
 }
 #main {
-    background:$bs-back;
+    color: $bs-text;
+    // background:$bs-back;
     position: absolute;
     left: 200px;
     right: 0;
@@ -202,15 +203,17 @@ $white-back:#fff;
     align-items: center;
     overflow: auto;
     header{
-      background:$bs-main;
-      color:#fff;
+      background:$bs-color;
+      background:$white-back;
+      color:$bs-color;
       min-height: 150px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       width:100%;
       .oparte{
-        background:$bs-main;
+        background:$bs-color;
+        background: $white-back;
         z-index: 10;
         transition: padding-left 0.6s ease-in-out, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
         // min-width: 1000px;
@@ -297,13 +300,21 @@ $white-back:#fff;
     width: 100%;
     text-align: center;
     // padding: 20px 0;
-    background:$bs-main;
+    background:$bs-color;
     color:#fff;
     min-height:150px;
     flex: 0 0 150px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:space-around;
+    .nick-name{
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .sign-text{
+      font-size: 14px;
+      // color: sign-text;
+    }
     .head-img{
        padding-top: 20px;
     }
@@ -319,20 +330,22 @@ $white-back:#fff;
     ul li {
       display: flex;
       align-items: center;
-      width:195px;
-      // margin-top: 15px;
+      width:100%;
+      box-sizing: border-box;
       padding:0 20px;
       cursor: pointer;
-      color: #727272;
-      line-height: 44px;
+      color: $bs-text;
       transform: translateZ(0);
       position: relative;
       transition-property: color;
       transition-duration: 0.4s;
       transition: all 1s;
       transform: translate(0,0);
+      line-height: 44px;
+      font-size: 14px;
+      font-weight: bold;
       &:hover{
-        color:$bs-main
+        color:$bs-color
       }
     }
   }
@@ -353,30 +366,35 @@ $white-back:#fff;
 
 .button {
     // font-size: 100px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background-color: rgba(255, 255, 255, 0);
     background-repeat: no-repeat;
     background-size: 100%;
     border: 0;
     outline: none;
-    transition: all 0.5s;
+    transition: all 0.3s;
     cursor: pointer;
-    color:#fff;
+    color:$bs-color;
     text-align: left;
-    &.show{
-      // transform: rotate(450deg);
-    }
+    border-radius: 10px;
+    text-align: center;
     .icon{
-      font-size: 30px;
+      font-size: 22px;
+    }
+    &:hover{
+      background:$bs-hover;
+      color:$bs-color;
     }
     &:active{
+       background:$bs-hover;
+       color:$bs-color;
         // color:yellow;
-        transform:scale(0.67);
-        -ms-transform:rotate(0.67); 	/* IE 9 */
-        -moz-transform:rotate(0.67); 	/* Firefox */
-        -webkit-transform:rotate(0.67); /* Safari 和 Chrome */
-        -o-transform:rotate(0.67); 	/* Opera */
+        // transform:scale(0.97);
+        // -ms-transform:rotate(0.97); 	/* IE 9 */
+        // -moz-transform:rotate(0.97); 	/* Firefox */
+        // -webkit-transform:rotate(0.97); /* Safari 和 Chrome */
+        // -o-transform:rotate(0.97); 	/* Opera */
     }
 }
 .search{
