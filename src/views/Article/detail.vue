@@ -31,6 +31,23 @@
                     <div v-html="input"></div>
                 </div>
             </div>
+            <div class="comments">
+                <h3>我要评论</h3>
+                <div>
+                    <textarea>
+                        
+                    </textarea>
+                        <!-- <mavon-editor 
+                        v-model="commentContent" 
+                        ref="md" 
+                        @change="changeComment" 
+                        style="min-height: 600px"
+                    /> -->
+                </div>
+                <div class="footer">
+                    <button>提交</button>
+                </div>
+            </div>
         </div>
         <aside>
             <nav class="top-warp">
@@ -52,15 +69,34 @@
     </article>
 </template>
 <script>
+// 导入组件 及 组件样式
+import { mavonEditor } from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 export default {
     name:"Articledetail",
+    components: {
+        mavonEditor,
+    },
     data(){
         return {
-            input:"<javascript>eee</javascript>"
+            commentContent:'', // 输入的markdown
+            conmentHtml:'',    // 及时转的html
+            input:'<pre class="hljs xml"><code style="background-color: transparent;"><span class="diff"></span><span class="line" data-start="0" data-start-original="1" data-end="1" data-id="1640223"></span><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">'
+                +'</span><span class="line" data-start="2" data-end="2" data-id="1640223"></span><span class="actionscript">    <span class="hljs-keyword">var</span> name = <span class="hljs-string">"小名"</span>'
++'</span><span class="line" data-start="3" data-end="3" data-id="1640223"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>'
         }
     },
     methods:{
-       
+        // 所有操作都会被解析重新渲染
+        changeComment(value, render){
+            // render 为 markdown 解析后的结果[html]
+            this.conmentHtml = render;
+        },
+        // 提交
+        submitComment(){
+            console.log(this.commentContent);
+            console.log(this.conmentHtml);
+        }
     }
 }
 </script> 
@@ -112,6 +148,18 @@ export default {
                 bottom: 140px;
                 overflow-y: auto;
             }
+        }
+    }
+    .comments{
+        margin-top: 30px;
+        width: 100%;
+        textarea{
+            width: 100%;
+        }
+        .footer{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
         }
     }
 }

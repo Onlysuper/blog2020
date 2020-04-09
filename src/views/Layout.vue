@@ -1,6 +1,6 @@
 <template>
-<div class="wrapper" :style="{left:wrapperShow||screenWidth<=1204?'0':'-200px'}">
-  <aside id="menu" :class="['sidebar',{show:wrapperShow}]">
+<div class="wrapper" :style="{left:drawerShow||screenWidth<=1204?'0':'-200px'}">
+  <aside id="menu" :class="['sidebar',{show:drawerShow}]">
         <header>
           <div class="head-img">
             <img src="../assets/images/admin-head.png">
@@ -43,10 +43,10 @@
             </ul>
         </div>
   </aside>
-  <main id="main" ref="scrollBox" @scroll="scrollFn"  :class="[{show:wrapperShow}]">
+  <main id="main" ref="scrollBox" @scroll="scrollFn"  :class="[{show:drawerShow}]">
     <header>
-      <div :class="['oparte',{show:wrapperShow,fixed:scrollTop>54}]">
-        <button :class="['button',{show:wrapperShow}]" @click="drawClick">
+      <div :class="['oparte',{show:drawerShow,fixed:scrollTop>54}]">
+        <button :class="['button',{show:drawerShow}]" @click="drawClick">
           <span class="icon iconfont icon-caidan"></span>
         </button>
         <div class="search">
@@ -74,9 +74,11 @@
     </div>
   </main>
   <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
-  <a v-if="backTopShow" class="gotop" href="javascript:;" @click="goTop">
-    顶
-  </a>
+  <transition :duration="300">
+    <a v-if="backTopShow" class="gotop" href="javascript:;" @click="goTop">
+      顶
+    </a>
+  </transition>
 </div>
 </template>
 
@@ -86,6 +88,9 @@ export default {
   name: 'Layout',
   data(){
     return {
+      scrollTop:0,// 滚动位置
+     screenWidth: document.documentElement.clientWidth,//屏幕宽度
+     drawerShow:false,
       //是否显示回到顶部
      backTopShow : false,
      // 是否允许操作返回顶部
@@ -93,11 +98,8 @@ export default {
      // 返回顶部所需时间
      backSeconds : 100,
      // 往下滑动多少显示返回顶部（单位：px）
-     showPx : 200,
-
-      scrollTop:0,
-      screenWidth: document.documentElement.clientWidth,//屏幕宽度
-      wrapperShow:false,
+     showPx : 300,
+     
     }
   },
   components: {
@@ -111,7 +113,7 @@ export default {
 computed:{
   // 是否显示遮罩
   maskIn(){
-    return this.wrapperShow&&this.screenWidth<=1204;
+    return this.drawerShow&&this.screenWidth<=1204;
   },
 },
 methods:{
@@ -136,11 +138,11 @@ methods:{
     },1)
   },
   winSizeChange(val){
-    this.wrapperShow=val>1204
+    this.drawerShow=val>1204
   },
  
   drawClick(){
-      this.wrapperShow=!this.wrapperShow
+      this.drawerShow=!this.drawerShow
     }
   },
   mounted() {
