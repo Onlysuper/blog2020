@@ -61,6 +61,7 @@
           <span class="icon iconfont icon-tubiao_huaban"></span>
         </div>
       </div>
+       <div style="height:54px;"></div>
     </header>
     <div class="container">
         <router-view></router-view>
@@ -338,13 +339,13 @@ methods:{
     // 内容样式
     .container{
       padding: 20px;
-      max-width: 960px;
+      justify-content: center;
       width:100%;
       box-sizing: border-box;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      
+      // background: $bs-light-back;
     }
 }
 #menu{
