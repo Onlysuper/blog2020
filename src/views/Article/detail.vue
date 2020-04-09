@@ -1,6 +1,7 @@
 <template>
     <article class="articledetail-page">
-        <div class="detail-card">
+       <div class="width-limit">
+            <div class="detail-card">
              <div class="content">
                 <h1>小技巧|使用Vue.js的Mixins复用你的代码</h1>
                 <div class="meta">
@@ -64,6 +65,7 @@
                 </ol>
             </nav>
         </aside>
+       </div>
     </article>
 </template>
 <script>

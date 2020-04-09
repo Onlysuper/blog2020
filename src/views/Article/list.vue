@@ -1,34 +1,35 @@
 <template>
     <div class="articlelist-page">
-       
-        <div class="nav-box">
-          <h2>标签: JavaScript</h2>
-          <nav :class="['tags',{expand:moreTagsShow}]">   
-            <ul :class="{'cl-effect-8':!moreTagsShow}">
-              <a data-hover="Desultory">
-                <!-- 标签 -->
-                <span>Sumptuous</span>
-              </a>
-              <a data-hover="Desultory">
-                <!-- 标签 -->
-                <span>Sumptuous</span>
-              </a>
-              <a data-hover="Desultory">
-                <!-- 标签 -->
-                <span>Sumptuous</span>
-              </a>
-              <!-- <a >标签</a>
-              <a >标签</a>
-              <a >标签</a>
-              <a >标签</a>
-              <a >标签</a>
-              <a >标签</a> -->
-            </ul>
-            <div @click="moreTags" class="more-but">
-               <span class="icon iconfont icon-tubiao-12"></span>
-            </div>
-          </nav>
-        </div>
+        <header>
+         <div class="width-limit nav-box">
+            <h2>标签: JavaScript</h2>
+            <nav :class="['tags',{expand:moreTagsShow}]">   
+              <ul :class="{'cl-effect-1':!moreTagsShow}">
+                <a data-hover="Desultory">
+                  <!-- 标签 -->
+                  <span>javascript</span>
+                </a>
+                <a data-hover="Desultory">
+                  <!-- 标签 -->
+                  <span>nodejs</span>
+                </a>
+                <a data-hover="Desultory">
+                  <!-- 标签 -->
+                  <span>php</span>
+                </a>
+                <!-- <a >标签</a>
+                <a >标签</a>
+                <a >标签</a>
+                <a >标签</a>
+                <a >标签</a>
+                <a >标签</a> -->
+              </ul>
+              <div @click="moreTags" class="more-but">
+                <span class="icon iconfont icon-tubiao-12"></span>
+              </div>
+            </nav>
+         </div>
+        </header>
         <div class="article-list">
           <section>
             <hgroup>
@@ -41,50 +42,7 @@
               </div>
             </hgroup>
           </section>
-          <section>
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="tip success">vue.js</a>
-                <a class="tip success">前端</a>
-                <a class="tip success">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
-          <section>
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="tip success">vue.js</a>
-                <a class="tip success">前端</a>
-                <a class="tip success">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
-          <section>
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="tip success">vue.js</a>
-                <a class="tip success">前端</a>
-                <a class="tip success">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
-          <section>
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="tip success">vue.js</a>
-                <a class="tip success">前端</a>
-                <a class="tip success">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
+         
           <section>
             <hgroup>
               <time>2019-01-02</time>
@@ -131,7 +89,9 @@ export default {
 }
 </script> 
 <style lang="scss" scoped>
-
+.cl-effect-1 a{
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+}
 .cl-effect-1 a::before,
 .cl-effect-1 a::after {
 	display: inline-block;
@@ -156,7 +116,9 @@ export default {
 	-moz-transform: translateX(-20px);
 	transform: translateX(-20px);
 }
-
+.cl-effect-1 a:hover,.cl-effect-1 a:focus{
+  color:$bs-main !important;
+}
 .cl-effect-1 a:hover::before,
 .cl-effect-1 a:hover::after,
 .cl-effect-1 a:focus::before,
@@ -327,7 +289,7 @@ export default {
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background: #fff;
+	background: $bs-light-color;
 	content: '';
 	-webkit-transition: top 0.3s;
 	-moz-transition: top 0.3s;
@@ -340,7 +302,7 @@ export default {
 	left: 0;
 	width: 2px;
 	height: 2px;
-	background: #fff;
+	background: $bs-light-color;
 	content: '';
 	-webkit-transition: height 0.3s;
 	-moz-transition: height 0.3s;
@@ -415,7 +377,7 @@ export default {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	border: 3px solid $bs-color;
+	border: 3px solid $bs-main;
 	content: '';
 	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
 	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
@@ -1099,93 +1061,95 @@ export default {
 }
 
 
-
-.nav-box{
-  padding: 0 20px; 
-  box-sizing: border-box;
-  max-width: 960px;
+header{
   width: 100%;
-  margin: 0 auto;
-  color: $bs-color;
-  // overflow: hidden;
-  padding: 10px;
-  h2{
-    padding-top: 20px;
-    box-sizing: border-box;
-    // color:$bs-text
-  }
-  .tags{
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-    position: relative;
+  padding:20px 0;
+  .nav-box{
     
-    ul{
-      transition: 0.2s ease-in-out;
-      flex: 1;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    color: $bs-main;
+   
+    // background:$white-back;
+    h2{
+      box-sizing: border-box;
+      font-size: 20px;;
+      // font-weight: normal;
+      color:$bs-normal-text
+    }
+    .tags{
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
-      list-style: none;
-      color:$bs-light-color;
-      // overflow: hidden;
-      li,a{
-        margin: 10px;
-        padding:0 10px;
-        box-sizing: border-box;
-        position: relative;
-        text-align: center;
-        white-space: nowrap;
-        line-height: 40px;
-        min-width: 80px;
-        display: block;
-        cursor: pointer;
-        &:hover,&:active{
-          background:#fff;
+      margin-top: 20px;
+      position: relative;
+      font-size: 18px;
+      ul{
+        transition: 0.2s ease-in-out;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        list-style: none;
+        color:$bs-light-color;
+        // overflow: hidden;
+        li,a{
+          // margin: 10px;
+          padding:0 10px;
+          box-sizing: border-box;
+          position: relative;
+          text-align: center;
+          white-space: nowrap;
+          line-height: 40px;
+          min-width: 80px;
+          display: block;
+          cursor: pointer;
+          color:$bs-normal-text;
         }
       }
-    }
-    .more-but{
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      right: 0;
-      top: 0;
-      background: #fff;
-      cursor: pointer;
-      justify-content: center;
-      align-items: center;
-      border-radius: 100%;
-      .icon{
-        font-size: 30px;
-      }
-    }
-    &.expand{
-      ul{
-        flex-wrap:wrap;
-        z-index: 100;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        // display: block;
-        white-space: normal;
-        background: #fff;
-        border-radius: 4px;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-      }
       .more-but{
-        right: 0;
-        top: -44px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
         position: absolute;
+        right: 0;
+        top: 0;
+        background: #fff;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        .icon{
+          font-size: 30px;
+        }
       }
-      
+      &.expand{
+        ul{
+          flex-wrap:wrap;
+          z-index: 100;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          // display: block;
+          white-space: normal;
+          background: #fff;
+          border-radius: 4px;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        .more-but{
+          right: 0;
+          top: -44px;
+          position: absolute;
+        }
+        
+      }
     }
+    
   }
-  
 }
+
  // 内容样式
 .articlelist-page{
     // padding: 20px;
@@ -1197,69 +1161,75 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     .article-list{
-      // background:#fff;
+      // padding-top: 30px;
+      // background:$white-back;
       max-width: 960px;
-      // background: $bs-light-back;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      border-radius: 10px;
+       section{
+          background:$white-back;
+          border-radius: 10px;
+          margin-bottom: 10px;
+          margin: 10px;
+          width:100%;
+          padding:10px;
+          box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
+          time{
+              line-height: 24px;
+              font-weight: bold;
+              display: block;
+              margin: 0 0 10px;
+              color:$bs-lighter-text
+          }
+          h3{
+            color: $bs-dark-text;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+            cursor: pointer;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: $bs-light-color;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: 0.4s ease-in-out;
+                transition: 0.4s ease-in-out;
+            }
+            &:hover:after{
+                visibility:initial;
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+            }
+          }
+          .footer{
+            padding: 12px 0px 8px;
+            // border-top: 1px solid #ddd;
+            .tip{
+                cursor: pointer;
+                display: inline-block;
+                margin: 0 8px 8px 0;
+                border-radius: 2px;
+                color:#fff;
+                width: 80px;
+                text-align: center;
+                &.success{
+                  color:$bs-main;
+                  border:1px solid $bs-light-color;
+                }
+            }
+          }
+          
+        }
     }
 }
-section{
-        background:#fff;
-        box-shadow: 0 1px 2px rgba(151, 151, 151, 0.58);
-        margin: 10px;
-        flex: 1;
-        min-width: 250px;
-        padding:20px;
-        time{
-            line-height: 24px;
-            font-weight: bold;
-            display: block;
-            margin: 0 0 10px;
-        }
-        h3{
-          color: #3f51b5;
-          position: relative;
-          display: inline-block;
-          margin-bottom: 16px;
-          cursor: pointer;
-          &:after {
-              content: "";
-              position: absolute;
-              width: 100%;
-              height: 2px;
-              bottom: 0;
-              left: 0;
-              background-color: #3f51b5;
-              visibility: hidden;
-              -webkit-transform: scaleX(0);
-              transform: scaleX(0);
-              -webkit-transition: 0.4s ease-in-out;
-              transition: 0.4s ease-in-out;
-          }
-          &:hover:after{
-              visibility:initial;
-              -webkit-transform: scaleX(1);
-              transform: scaleX(1);
-          }
-        }
-        .footer{
-          padding: 12px 0px 8px;
-          border-top: 1px solid #ddd;
-          .tip{
-              cursor: pointer;
-              display: inline-block;
-              margin: 0 8px 8px 0;
-              border-radius: 2px;
-              color:#fff;
-              width: 80px;
-              text-align: center;
-              &.success{
-                background:#8bc34a
-              }
-          }
-        }
-        
-      }
+
+
 </style>

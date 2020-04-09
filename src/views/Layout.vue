@@ -155,9 +155,7 @@ methods:{
 }
 </script>
 
-<style lang="scss">
-@import "../assets/scss/sidebar.scss";
-</style>
+
 
 <style lang="scss" scoped>
 .bg-bubbles {
@@ -283,7 +281,7 @@ methods:{
   transform: rotate(450deg);
 }
 #main {
-    color: $bs-text;
+    color: $bs-normal-text;
     // background:$bs-back;
     position: absolute;
     left: 200px;
@@ -297,21 +295,19 @@ methods:{
     align-items: center;
     overflow: auto;
     header{
-      background:$bs-color;
+      background:$bs-main;
       background:$white-back;
-      color:$bs-color;
+      color:$bs-main;
       // min-height: 150px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       width:100%;
       .oparte{
-        background:$bs-color;
+        background:$bs-main;
         background: $white-back;
         z-index: 10;
         transition: padding-left 0.6s ease-in-out, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
-        // min-width: 1000px;
-        // transition: 0.4s ease-in-out;
         left: 0;
         right: 0;
         box-sizing: border-box;
@@ -338,14 +334,14 @@ methods:{
     }
     // 内容样式
     .container{
-      padding: 20px;
+      // padding: 20px;
       justify-content: center;
       width:100%;
       box-sizing: border-box;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      // background: $bs-light-back;
+      background: $bs-light-back;
     }
 }
 #menu{
@@ -369,7 +365,7 @@ methods:{
     width: 100%;
     text-align: center;
     // padding: 20px 0;
-    background:$bs-color;
+    background:$bs-main;
     color:#fff;
     min-height:150px;
     flex: 0 0 150px;
@@ -404,7 +400,7 @@ methods:{
       box-sizing: border-box;
       padding:0 20px;
       cursor: pointer;
-      color: $bs-text;
+      color: $bs-normal-text;
       transform: translateZ(0);
       position: relative;
       transition-property: color;
@@ -419,7 +415,7 @@ methods:{
         text-decoration: none;
       }
       &:hover{
-        color:$bs-color
+        color:$bs-main
       }
     }
   }
@@ -449,20 +445,21 @@ methods:{
     outline: none;
     transition: all 0.3s;
     cursor: pointer;
-    color:$bs-color;
     text-align: left;
     border-radius: 10px;
     text-align: center;
+    color:$bs-main;
+    // color:$bs-text
     .icon{
       font-size: 22px;
     }
     &:hover{
       background:$bs-hover;
-      color:$bs-color;
+      color:$bs-main;
     }
     &:active{
        background:$bs-hover;
-       color:$bs-color;
+       color:$bs-main;
         // color:yellow;
         // transform:scale(0.97);
         // -ms-transform:rotate(0.97); 	/* IE 9 */

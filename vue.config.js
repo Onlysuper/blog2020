@@ -3,10 +3,16 @@ module.exports = {
 	css: {
 		loaderOptions: {
 			sass: {
-				prependData: `import "~@/assets/style/common/variables.scss"`
+				prependData: `
+				import "~@/assets/style/common/variables.scss"
+				import "~@/assets/style/common/common.scss"
+				`,
             },
             scss: {
-				prependData: `@import "~@/assets/style/common/variables.scss";`
+				prependData: `
+				@import "~@/assets/style/common/variables.scss";
+				@import "~@/assets/style/common/common.scss";
+				`,
 			}
 		}
 	}
