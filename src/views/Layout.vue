@@ -43,7 +43,7 @@
             </ul>
         </div>
   </aside>
-  <main ref="scrollBox" @scroll="scrollFn" id="main" :class="[{show:wrapperShow}]">
+  <main id="main" ref="scrollBox" @scroll="scrollFn"  :class="[{show:wrapperShow}]">
     <header>
       <div :class="['oparte',{show:wrapperShow,fixed:scrollTop>54}]">
         <button :class="['button',{show:wrapperShow}]" @click="drawClick">
@@ -74,6 +74,9 @@
     </div>
   </main>
   <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
+  <a v-if="backTopShow" class="gotop" href="javascript:;" @click="goTop">
+    顶
+  </a>
 </div>
 </template>
 
@@ -83,6 +86,15 @@ export default {
   name: 'Layout',
   data(){
     return {
+      //是否显示回到顶部
+     backTopShow : false,
+     // 是否允许操作返回顶部
+     backTopAllow : true,
+     // 返回顶部所需时间
+     backSeconds : 100,
+     // 往下滑动多少显示返回顶部（单位：px）
+     showPx : 200,
+
       scrollTop:0,
       screenWidth: document.documentElement.clientWidth,//屏幕宽度
       wrapperShow:false,
@@ -103,13 +115,30 @@ computed:{
   },
 },
 methods:{
- 
+  // 页面滚动
+  scrollFn() {
+    this.scrollTop=this.$refs.scrollBox.scrollTop;
+    this.backTopShow = this.scrollTop > this.showPx // 是否显示置顶按钮
+  },
+  // 回到顶部
+  goTop(){
+    if (!this.backTopAllow) return;
+    this.backToTopShow = false;
+    this.backTopAllow = false;
+    let step = this.scrollTop / this.backSeconds;
+    let backTopInterval = setInterval(()=>{
+      if(this.scrollTop>0){
+        this.$refs.scrollBox.scrollTop-=step;
+      }else{
+        this.backTopAllow = true;
+        clearInterval(backTopInterval);
+      }
+    },1)
+  },
   winSizeChange(val){
     this.wrapperShow=val>1204
   },
-  scrollFn() {
-    this.scrollTop=this.$refs.scrollBox.scrollTop
-  },
+ 
   drawClick(){
       this.wrapperShow=!this.wrapperShow
     }
@@ -140,6 +169,11 @@ $bs-back:#f3f7f8;
 $bs-text:#727272;
 
 $white-back:#fff;
+.gotop{
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+}
 .wrapper{
   right: 0;
   height: 100vh;
