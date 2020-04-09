@@ -177,6 +177,7 @@ $white-back:#fff;
   position: fixed;
   right: 20px;
   bottom: 50px;
+  z-index: 999;
 }
 .wrapper{
   right: 0;
@@ -235,7 +236,7 @@ $white-back:#fff;
           width: auto;
         }
         &.fixed{
-          z-index: 999;
+          z-index: 88;
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         }
       }
