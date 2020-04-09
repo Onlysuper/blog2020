@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="articlelist-page">
          <section>
           <hgroup>
             <time>2019-01-02</time>
@@ -93,7 +93,7 @@ export default {
 </script> 
 <style lang="scss" scoped>
  // 内容样式
-.container{
+.articlelist-page{
     padding: 20px;
     max-width: 960px;
     width:100%;
