@@ -12,8 +12,10 @@
         </header>
          <div class="option">
             <ul>
-               <li><img src="images/home.png" alt="">
-                  <p>首页</p>
+               <li> 
+                  <router-link to="/">
+                    <p>首页</p>
+                  </router-link>
                </li>
                <li><img src="images/works.png" alt="">
                   <p>我的作品</p>
@@ -233,6 +235,7 @@ $white-back:#fff;
           width: auto;
         }
         &.fixed{
+          z-index: 999;
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         }
       }
@@ -344,6 +347,10 @@ $white-back:#fff;
       line-height: 44px;
       font-size: 14px;
       font-weight: bold;
+      a{
+        color:inherit;
+        text-decoration: none;
+      }
       &:hover{
         color:$bs-color
       }

@@ -104,18 +104,19 @@ export default {
  // 内容样式
 .articledetail-page{
     flex: 1;
-    // display: flex;
-    // flex-direction: ;
+    display: flex;
+    flex-direction:row ;
     .detail-card{
-        width: 80%;
-        float: left;
+        // width: 80%;
+        // float: left;
+        flex: 1;
         border-radius: 4px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         // margin-top: -150px;
         position: relative;
         z-index: 10;
         background: #fff;
-        padding:30px;
+        // padding:30px;
         box-sizing: border-box;
         h2{
             font-size: 32px;
@@ -139,6 +140,7 @@ export default {
     }
     aside{
         width:20%;
+        flex: 0 0 20%;
         float: right;
         .top-warp{
             position: fixed;
@@ -166,9 +168,9 @@ export default {
 
 @media screen and (max-width: 760px){
     .articledetail-page{
-        .detail-card{
-            width: 100%;
-        }
+        // .detail-card{
+        //     width: auto;
+        // }
     }
     aside {
         display: none;

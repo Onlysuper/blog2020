@@ -9,6 +9,7 @@ const routes: RouteConfig[] = [
     path: '/',
     name: 'Layout',
     component: Layout,
+    redirect:'/articlelist',
     children:[
       {
         path: '/articlelist',
