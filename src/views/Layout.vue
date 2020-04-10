@@ -267,8 +267,8 @@ methods:{
 
 .gotop{
   position: fixed;
-  right: 20px;
-  bottom: 30px;
+  right: 5px;
+  bottom: 5px;
   z-index: 999;
   // background: $bs-main;
   // color:$bs-white;
@@ -509,6 +509,7 @@ methods:{
     height: 40px;
     font-size: 16px;
     color:$bs-main;
+    border-radius: 0;
     &::placeholder{
       font-size: inherit;
       color:$bs-light-color;

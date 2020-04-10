@@ -2,6 +2,11 @@
     margin:0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+    font-size: 14px;
+    color: $bs-normal-text;
+}
 a,button{
     transition: .4s;
     user-select: none;

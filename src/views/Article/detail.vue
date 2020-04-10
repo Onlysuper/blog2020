@@ -159,6 +159,9 @@ export default {
             }
             ol,li{
                 list-style: none;
+                a{
+                    // color
+                }
             }
         }
     }
