@@ -32,6 +32,12 @@ const routes: RouteConfig[] = [
     ]
   },
   {
+    path: "/write",
+    name: "write",
+    component: () =>
+      import(/* webpackChunkName: "signin" */ "../views/Write/article.vue")
+  },
+  {
     path: "/signin",
     name: "signin",
     component: () =>

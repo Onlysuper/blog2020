@@ -54,8 +54,11 @@
               </div>
             </div>
             <ul class="but-list">
-              <li @click="sign" class="sign">
+              <li @click="goSign" class="sign">
                 <span class="icon iconfont icon-denglu"></span>
+              </li>
+              <li @click="goWrite">
+                <span class="icon iconfont icon-iconfontedit"></span>
               </li>
             </ul>
           </div>
@@ -138,9 +141,14 @@ export default {
     drawClick() {
       this.drawerShow = !this.drawerShow
     },
-    sign() {
+    goSign() {
       this.$router.push({
         name: "signin"
+      })
+    },
+    goWrite() {
+      this.$router.push({
+        name: "write"
       })
     }
   },
@@ -168,15 +176,18 @@ export default {
   flex-direction: row;
   justify-content: flex-end;
   .but-list {
-    padding-left: 30px;
+    // padding-left: 30px;
+    display: flex;
     li {
+      margin-left: 30px;
+      display: inline-block;
       height: 100%;
       list-style: none;
       display: flex;
       justify-content: center;
       align-items: center;
       .icon {
-        font-size: 20px;
+        font-size: 26px;
         cursor: pointer;
       }
     }

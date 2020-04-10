@@ -6,10 +6,10 @@
           <img src="../../assets/logo.png" alt="" />
         </a>
         <div class="sign__group">
-          <input type="text" class="sign__input" placeholder="Email" />
+          <input type="text" class="sign__input" placeholder="请输入账号" />
         </div>
         <div class="sign__group">
-          <input type="password" class="sign__input" placeholder="Password" />
+          <input type="password" class="sign__input" placeholder="请输入密码" />
         </div>
         <div class="sign__group check">
           <input id="remember" name="remember" type="checkbox" checked="checked" />
