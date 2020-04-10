@@ -54,6 +54,9 @@ select {
     rgba(91, 195, 121, 0.5) 0%,
     rgba(199, 230, 212, 0.05) 100%
   );
+  &.full {
+    width: 100%;
+  }
   &::before {
     border-radius: 4px;
     content: "";
@@ -99,6 +102,7 @@ select {
   color: #8599ab;
   background: #fafafa;
   line-height: 24px;
+
   &:hover {
     color: $bs-main;
   }
