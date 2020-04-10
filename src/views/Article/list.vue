@@ -1219,7 +1219,8 @@ header{
                 border-radius: 2px;
                 color:#fff;
                 width: 80px;
-                text-align: center;
+				text-align: center;
+				font-size: 13px;
                 &.success{
                   color:$bs-main;
                   border:1px solid $bs-light-color;

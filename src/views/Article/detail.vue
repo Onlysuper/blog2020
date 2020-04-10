@@ -103,18 +103,15 @@ export default {
 <style lang="scss" scoped>
  // 内容样式
 .articledetail-page{
-    // flex: 1;
-    // display: flex;
-    // flex-direction:row ;
     width: 100%;
     .detail-card{
+        margin-top: 20px;
         position: relative;
         width: 80%;
         flex: 1;
         border-radius: 4px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
         z-index: 10;
-        // background: red;
         box-sizing: border-box;
         height: auto;
         float: left;

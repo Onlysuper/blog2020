@@ -56,9 +56,11 @@
         <button :class="['button',{show:drawerShow}]" @click="drawClick">
           <span class="icon iconfont icon-caidan"></span>
         </button>
-        <div class="search">
-          <input/>
-          <span class="icon iconfont icon-tubiao_huaban"></span>
+        <div :class="['search',{in:searchFocus}]">
+          <input placeholder="请输入关键字"/>
+          <div @click="searchFocus=!searchFocus" class="fixed-icon">
+            <span class="icon iconfont icon-tubiao_huaban"></span>
+          </div>
         </div>
       </div>
        <div style="height:54px;"></div>
@@ -83,7 +85,8 @@ export default {
   name: 'Layout',
   data(){
     return {
-      scrollTop:0,// 滚动位置
+     searchFocus:false,
+     scrollTop:0,// 滚动位置
      screenWidth: document.documentElement.clientWidth,//屏幕宽度
      drawerShow:false,
       //是否显示回到顶部
@@ -469,13 +472,51 @@ methods:{
     }
 }
 .search{
+ 
+  display: flex;
+  flex-direction: row;
+  position: relative;  
+  align-items: center;
+  justify-content: space-between;
+  // padding: 3px;
+  box-sizing: border-box;
   input{
     background: none;
     border:0;
     outline: none;
+    flex: 1;
+    padding-left: 20px;
+    transition: 0.2s ease-in-out;
+    opacity: 0;
+    width: 0;
+    border-bottom: 1px solid $bs-main;
+    height: 40px;
+    font-size: 18px;
+    color:$bs-main;
+    &::placeholder{
+      font-size: inherit;
+      color:$bs-light-color;
+    }
   }
-  .icon{
-    font-size: 30px;
+  &.in{
+    input{
+      width: 320px;
+      opacity: 1;
+    }
+  }
+  .fixed-icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width:40px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    cursor: pointer;
+    .icon{
+      font-size: 28px;
+    }
   }
 }
 
