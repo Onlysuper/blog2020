@@ -21,29 +21,14 @@
                   </router-link>
                </li>
                <li><img src="images/works.png" alt="">
-                  <p>我的作品</p>
+                  <p>笔记</p>
                </li>
-               <li><img src="images/release.png" alt="">
-                  <p>发布作品</p>
-               </li>
-               <li><img src="images/collection.png" alt="">
-                  <p>我的收藏</p>
-               </li>
-               <li><img src="images/setup.png" alt="">
-                  <p>设置</p>
-               </li>
-               <li><img src="images/home.png" alt="">
-                  <p>首页</p>
-               </li>
-               <li><img src="images/works.png" alt="">
-                  <p>我的作品</p>
-               </li>
-               <li><img src="images/release.png" alt="">
-                  <p>发布作品</p>
-               </li>
-               <li><img src="images/collection.png" alt="">
-                  <p>我的收藏</p>
-               </li>
+               <!-- <li><img src="images/release.png" alt="">
+                  <p>生活</p>
+               </li> -->
+               <!-- <li><img src="images/collection.png" alt="">
+                  <p>英语</p>
+               </li> -->
                <li><img src="images/setup.png" alt="">
                   <p>设置</p>
                </li>
@@ -65,7 +50,7 @@
       </div>
     </header>
     <div class="container">
-        <div style="height:64px;width:100%"></div>
+        <div style="height:56px;width:100%"></div>
         <router-view></router-view>
     </div>
   </main>
