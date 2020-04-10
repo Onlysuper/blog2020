@@ -1,6 +1,6 @@
 <template>
   <div class="write-page bs-outline">
-    <form action="" class="write_form">
+    <div class="write_form">
       <div class="write_group">
         <label for="title">标题</label>
         <input name="title" type="text" />
@@ -50,12 +50,13 @@
         <label>内容</label>
         <mavon-editor class="bs-outline" v-model="commentContent" ref="md" @change="changeComment" style="min-height: 600px" />
       </div>
-      <div>
-        <button class="bs-button">
-          <span>提交</span>
-        </button>
-      </div>
-    </form>
+
+    </div>
+    <div class="footer">
+      <button class="bs-button">
+        <span>发布</span>
+      </button>
+    </div>
   </div>
 </template>
 <script>
@@ -114,12 +115,14 @@ export default {
     },
     //添加标签
     addTag(tags) {
-      if (!tags) {
-        return false
-      }
+
+
       if (tags && Array.isArray(tags)) {
         this.selectedTags = [...this.selectedTags, ...tags]
       } else {
+        if (!this.tagVal) {
+          return false
+        }
         this.selectedTags.push(this.tagVal)
         this.tagVal = ""
       }
@@ -234,6 +237,14 @@ export default {
           justify-content: center;
         }
       }
+    }
+  }
+  .footer {
+    margin-top: 20px;
+    text-align: right;
+    button {
+      padding: 0 20px;
+      //   min-width: 120px;
     }
   }
 }
