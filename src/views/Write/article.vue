@@ -23,6 +23,11 @@
         <h4>内容</h4>
         <mavon-editor v-model="commentContent" ref="md" @change="changeComment" style="min-height: 600px" />
       </div>
+      <div>
+        <button class="bs-button">
+          <span>提交</span>
+        </button>
+      </div>
     </form>
   </div>
 </template>

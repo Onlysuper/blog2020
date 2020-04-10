@@ -49,6 +49,7 @@ input {
   cursor: pointer;
   height: 40px;
   width: 100%;
+  max-width: 1024px;
   border-radius: 4px;
   &::before {
     border-radius: 4px;
