@@ -15,7 +15,7 @@
         </header>
          <div class="option">
             <ul>
-               <li> 
+               <li class="active"> 
                   <router-link to="/">
                     <p>首页</p>
                   </router-link>
@@ -449,6 +449,9 @@ methods:{
       line-height: 44px;
       font-size: 14px;
       font-weight: bold;
+      &.active{
+        background:$bs-active-back;
+      }
       a{
         color:inherit;
         text-decoration: none;
