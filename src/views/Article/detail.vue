@@ -1,8 +1,8 @@
 <template>
     <article class="articledetail-page">
        <div class="detail-inner width-limit">
-            <div class="detail-card bs-outline">
-             <div class="content">
+            <div class="detail-card">
+             <div class="content bs-outline">
                 <h1>小技巧|使用Vue.js的Mixins复用你的代码</h1>
                 <div class="meta">
                     <time>2019-01-02</time>
@@ -105,16 +105,12 @@ export default {
     width: 100%;
     .detail-inner{
         display: flex;
-
     }
     .detail-card{
-        margin-top: 20px;
+        // padding-top: 20px;
         position: relative;
         width: 80%;
         flex: 1;
-        // border-radius: 4px;
-        // box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
-        z-index: 10;
         box-sizing: border-box;
         height: auto;
         float: left;
@@ -135,8 +131,10 @@ export default {
             }
         }
         .content{
+            margin: 10px;
+            // margin-top: px;
             box-sizing: border-box;
-            padding: 30px;
+            padding: 10px;
             p{
                 margin-bottom: 30px;
             }

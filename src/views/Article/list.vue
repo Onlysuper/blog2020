@@ -88,13 +88,13 @@ export default {
 header{
   background: $bs-white;
   width: 100%;
-//   padding:20px 0;
   border-bottom: 2px solid $bs-main;
   .header-inner{
     box-sizing: border-box;
     width: 100%;
     margin: 0 auto;
-    color: $bs-main;
+	color: $bs-main;
+	padding: 0 20px;
     h2{
 	  margin-top: 10px;
       box-sizing: border-box;
@@ -137,7 +137,7 @@ header{
         height: 40px;
         display: flex;
         align-items: center;
-        position: absolute;
+        // position: absolute;
         right: 0;
         top: 0;
         background: #fff;

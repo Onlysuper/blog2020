@@ -63,9 +63,9 @@
           </div>
         </div>
       </div>
-       <div style="height:54px;"></div>
     </header>
     <div class="container">
+        <div style="height:64px;width:100%"></div>
         <router-view></router-view>
     </div>
   </main>
@@ -347,11 +347,11 @@ methods:{
           z-index: 88;
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         }
+        button{
+          text-align: left;
+        }
       }
-    
-      &:last-of-type{
-        // padding-bottom: 20px;
-      }
+
     }
     // 内容样式
     .container{
@@ -527,7 +527,7 @@ methods:{
     width:40px;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-self: center;
     cursor: pointer;
     .icon{
