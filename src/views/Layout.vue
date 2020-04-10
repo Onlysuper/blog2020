@@ -548,6 +548,17 @@ methods:{
         }
       }
   }
+  .search{
+    flex: 1;
+    padding-left: 10px;
+    box-sizing: border-box;
+    &.in{
+      input{
+        width: 100%;
+        opacity: 1;
+      }
+    }
+  }
 }
 
 .mask {
