@@ -23,6 +23,11 @@
                <li><img src="images/works.png" alt="">
                   <p>笔记</p>
                </li>
+               <li>
+                 <router-link to="/comments">
+                   <p>留言</p>
+                 </router-link>
+               </li>
                <!-- <li><img src="images/release.png" alt="">
                   <p>生活</p>
                </li> -->
@@ -41,12 +46,20 @@
         <button :class="['button',{show:drawerShow}]" @click="drawClick">
           <span class="icon iconfont icon-caidan"></span>
         </button>
-        <div :class="['search',{in:searchFocus}]">
-          <input placeholder="请输入关键字"/>
-          <div @click="searchFocus=!searchFocus" class="fixed-icon">
-            <span class="icon iconfont icon-tubiao_huaban"></span>
+        <div class="oparte-right">
+          <div :class="['search',{in:searchFocus}]">
+            <input placeholder="请输入关键字"/>
+            <div @click="searchFocus=!searchFocus" class="fixed-icon">
+              <span class="icon iconfont icon-tubiao_huaban"></span>
+            </div>
           </div>
+          <ul class="but-list">
+            <li>
+              <span class="icon iconfont icon-denglu"></span>
+            </li>
+          </ul>
         </div>
+       
       </div>
     </header>
     <div class="container">
@@ -146,6 +159,26 @@ methods:{
 
 
 <style lang="scss" scoped>
+.oparte-right{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  .but-list{
+    padding-left: 30px;
+    li{
+      height: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon{
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+  }
+}
 .bg-bubbles {
     position: absolute;
     // 使气泡背景充满整个屏幕；
@@ -358,7 +391,7 @@ methods:{
   left: 0;
   // padding-left: 0;
   bottom: 0;
-  z-index: 66;
+  z-index: 99;
   width: 200px;
   min-height: 100%;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -514,7 +547,7 @@ methods:{
     height: 100%;
     display: flex;
     justify-content: flex-end;
-    align-self: center;
+    align-items: center;
     cursor: pointer;
     .icon{
       font-size: 28px;

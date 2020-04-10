@@ -14,18 +14,17 @@ const routes: RouteConfig[] = [
       {
         path: '/articlelist',
         name: 'Articlelist',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/Article/list.vue'),
       },
       {
         path: '/articledetail',
         name: 'Articledetail',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/Article/detail.vue'),
+      },
+      {
+        path: '/comments',
+        name: 'Comments',
+        component: () => import(/* webpackChunkName: "about" */ '../views/Comments/list.vue'),
       }
     ]
   },

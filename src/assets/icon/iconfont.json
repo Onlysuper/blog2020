@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "36529",
+      "name": "登录",
+      "font_class": "denglu",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
       "icon_id": "691112",
       "name": "回到顶部",
       "font_class": "huidaodingbu",
