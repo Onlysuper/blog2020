@@ -1,7 +1,7 @@
 <template>
     <article class="articledetail-page">
-       <div class="width-limit">
-            <div class="detail-card">
+       <div class="detail-inner width-limit">
+            <div class="detail-card bs-outline">
              <div class="content">
                 <h1>小技巧|使用Vue.js的Mixins复用你的代码</h1>
                 <div class="meta">
@@ -47,24 +47,24 @@
                     </div>
                 </div>
              </div>
-        </div>
-        <aside>
-            <nav class="top-warp">
-                <h4>TOC</h4>
-                <ol>
-                    <li>
-                        <a href="#1-意外全局变量">1-意外全局变量</a>
-                        <ol>
-                           <li> 
-                                <a href="#Question">
-                                Question
-                            </a>
-                           </li>
-                        </ol>
-                    </li>
-                </ol>
-            </nav>
-        </aside>
+            </div>
+            <aside>
+                <nav class="top-warp bs-outline">
+                    <h4>TOC</h4>
+                    <ol>
+                        <li>
+                            <a href="#1-意外全局变量">1-意外全局变量</a>
+                            <ol>
+                            <li> 
+                                    <a href="#Question">
+                                    Question
+                                </a>
+                            </li>
+                            </ol>
+                        </li>
+                    </ol>
+                </nav>
+            </aside>
        </div>
     </article>
 </template>
@@ -104,13 +104,17 @@ export default {
  // 内容样式
 .articledetail-page{
     width: 100%;
+    .detail-inner{
+        display: flex;
+
+    }
     .detail-card{
         margin-top: 20px;
         position: relative;
         width: 80%;
         flex: 1;
-        border-radius: 4px;
-        box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
+        // border-radius: 4px;
+        // box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
         z-index: 10;
         box-sizing: border-box;
         height: auto;
@@ -140,16 +144,24 @@ export default {
         }
     }
     aside{
-        width:20%;
-        flex: 0 0 20%;
+        width:200px;
+        min-width: 200px;
+        flex: 0 0 200px;
         float: left;
+        padding-top: 20px;
         .top-warp{
             position: fixed;
-            padding-left:60px;
+            margin-left:20px;
+            min-width: 200px;
+            box-sizing: border-box;
+            padding: 10px;
             &.fixed{
                 top: 76px;
                 bottom: 140px;
                 overflow-y: auto;
+            }
+            ol,li{
+                list-style: none;
             }
         }
     }

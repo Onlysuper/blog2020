@@ -472,13 +472,11 @@ methods:{
     }
 }
 .search{
- 
   display: flex;
   flex-direction: row;
   position: relative;  
   align-items: center;
   justify-content: space-between;
-  // padding: 3px;
   box-sizing: border-box;
   input{
     background: none;
@@ -491,7 +489,7 @@ methods:{
     width: 0;
     border-bottom: 1px solid $bs-main;
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     color:$bs-main;
     &::placeholder{
       font-size: inherit;

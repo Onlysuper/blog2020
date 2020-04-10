@@ -2,7 +2,43 @@
     margin:0;
     padding: 0;
 }
+a{
+    transition: .4s;
+}
 .width-limit{
     max-width: 960px;
     margin:0 auto
+}
+
+// 普通按钮
+.bs-button{
+
+}
+
+.bs-tag{
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 8px 8px 0;
+    border-radius: 2px;
+    color:#fff;
+    width: 80px;
+    // height: 40px;
+    text-align: center;
+    font-size: 13px;
+    color:$bs-main;
+    color:$bs-normal-text;
+    // border:1px solid $bs-normal-text;
+    border:1px solid rgba(133,153,171,.2);
+    color:#8599ab;
+    background: #fafafa;
+    line-height: 24px;
+    &:hover{
+        color: $bs-main;
+    }
+}
+.bs-outline{
+    box-shadow: 0 2px 26px 0 rgba(133, 153, 171, 0.1);
+    border: 1px solid rgba(133, 153, 171, 0.2);
+    background:$white-back;
+    border-radius: 10px;
 }
