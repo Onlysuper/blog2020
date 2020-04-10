@@ -71,9 +71,9 @@
   </main>
   <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
   <transition :duration="300">
-    <a v-if="backTopShow" class="gotop" href="javascript:;" @click="goTop">
-      顶
-    </a>
+    <a c v-if="backTopShow" class="gotop bs-button" href="javascript:;" @click="goTop">
+      <span class="icon iconfont icon-huidaodingbu"></span>
+    </a> 
   </transition>
   
 </div>
@@ -268,8 +268,26 @@ methods:{
 .gotop{
   position: fixed;
   right: 20px;
-  bottom: 50px;
+  bottom: 30px;
   z-index: 999;
+  // background: $bs-main;
+  // color:$bs-white;
+  width: 40px;
+  height: 40px;
+  // border-radius: 100%;
+  display: flex;
+  justify-content: center;
+   align-items: center;
+  // text-align: center;
+  // line-height: 40px;
+  .icon{
+    font-size: 22px;
+    font-weight: bold;
+  }
+  // a{
+  //   background: $bs-main;
+  //   color:$bs-white;
+  // }
 }
 .wrapper{
   right: 0;
@@ -299,7 +317,7 @@ methods:{
     overflow: auto;
     header{
       background:$bs-main;
-      background:$white-back;
+      background:$bs-white;
       color:$bs-main;
       // min-height: 150px;
       display: flex;
@@ -308,7 +326,7 @@ methods:{
       width:100%;
       .oparte{
         background:$bs-main;
-        background: $white-back;
+        background: $bs-white;
         z-index: 10;
         transition: padding-left 0.6s ease-in-out, background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s linear;
         left: 0;

@@ -30,11 +30,12 @@
                 </div>
                 <!-- </div> -->
                 <div class="comments">
-                    <h3>我要评论</h3>
-                    <div>
-                        <textarea>
-                            
-                        </textarea>
+                    <!-- <h3>我要评论</h3> -->
+                    <div class="comment-inner">
+                        <input placeholder="我要留言" />
+                        <button class="bs-button">
+                            <span class="icon iconfont icon-fasong"></span>
+                        </button>
                             <!-- <mavon-editor 
                             v-model="commentContent" 
                             ref="md" 
@@ -42,9 +43,7 @@
                             style="min-height: 600px"
                         /> -->
                     </div>
-                    <div class="footer">
-                        <button>提交</button>
-                    </div>
+                    
                 </div>
              </div>
             </div>
@@ -168,9 +167,20 @@ export default {
     .comments{
         margin-top: 30px;
         width: 100%;
-        textarea{
-            width: 100%;
+        .comment-inner{
+            display: flex;
+            flex-direction: row;
+            input{
+                flex: 1;
+            }
+            button{
+                flex: 0 0 1;
+                margin-left: 20px;
+                width: 40px;
+                height: 40px;
+            }
         }
+        
         .footer{
             display: flex;
             flex-direction: row;

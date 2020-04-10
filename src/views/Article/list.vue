@@ -17,12 +17,6 @@
                   <!-- 标签 -->
                   <span>php</span>
                 </a>
-                <!-- <a >标签</a>
-                <a >标签</a>
-                <a >标签</a>
-                <a >标签</a>
-                <a >标签</a>
-                <a >标签</a> -->
               </ul>
               <div @click="moreTags" class="more-but">
                 <span class="icon iconfont icon-tubiao-12"></span>
@@ -31,40 +25,42 @@
          </div>
         </header>
         <div class="article-list">
-          <section class="bs-outline">
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3 @click="toAricle">小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="bs-tag">vue.js</a>
-                <a class="bs-tag">前端</a>
-                <a class="bs-tag">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
-         
-          <section>
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="bs-tag">vue.js</a>
-                <a class="bs-tag">前端</a>
-                <a class="bs-tag">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
-          <section>
-            <hgroup>
-              <time>2019-01-02</time>
-              <h3>小技巧|使用Vue.js的Mixins复用你的代码s</h3>
-              <div class="footer">
-                <a class="bs-tag">vue.js</a>
-                <a class="bs-tag">前端</a>
-                <a class="bs-tag">小技巧</a>
-              </div>
-            </hgroup>
-          </section>
+			<section class="bs-outline">
+				<hgroup>
+				<time>2019-01-02</time>
+				<h3 @click="toAricle">小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+				<div class="footer">
+					<a class="bs-tag">vue.js</a>
+					<a class="bs-tag">前端</a>
+					<a class="bs-tag">小技巧</a>
+				</div>
+				</hgroup>
+			</section>
+			<section class="bs-outline">
+				<hgroup>
+				<time>2019-01-02</time>
+				<h3 @click="toAricle">小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+				<div class="footer">
+					<a class="bs-tag">vue.js</a>
+					<a class="bs-tag">前端</a>
+					<a class="bs-tag">小技巧</a>
+				</div>
+				</hgroup>
+			</section>
+			<section class="bs-outline">
+				<hgroup>
+				<time>2019-01-02</time>
+				<h3 @click="toAricle">小技巧|使用Vue.js的Mixins复用你的代码s</h3>
+				<div class="footer">
+					<a class="bs-tag">vue.js</a>
+					<a class="bs-tag">前端</a>
+					<a class="bs-tag">小技巧</a>
+				</div>
+				</hgroup>
+			</section>
+			<div class="loadmore">
+				<button class="bs-button"><span>加载更多</span></button>
+			</div>
         </div>
     </div>
 </template>
@@ -89,6 +85,187 @@ export default {
 }
 </script> 
 <style lang="scss" scoped>
+header{
+  background: $bs-white;
+  width: 100%;
+//   padding:20px 0;
+  border-bottom: 2px solid $bs-main;
+  .header-inner{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    color: $bs-main;
+    h2{
+	  margin-top: 10px;
+      box-sizing: border-box;
+      font-size: 20px;;
+	  color:$bs-normal-text;
+	  color: $bs-main;
+    }
+    .nav-box{
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      position: relative;
+	  font-size: 16px;
+	  padding: 10px 0;
+      ul{
+        transition: 0.2s ease-in-out;
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        list-style: none;
+        color:$bs-light-color;
+        // overflow: hidden;
+        li,a{
+          // margin: 10px;
+        //   padding:0 10px;
+          box-sizing: border-box;
+          position: relative;
+          text-align: center;
+          white-space: nowrap;
+          line-height: 40px;
+          min-width: 80px;
+          display: block;
+          cursor: pointer;
+          color:$bs-nav-text;
+        }
+      }
+      .more-but{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #fff;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        .icon{
+          font-size: 30px;
+        }
+      }
+      &.expand{
+        ul{
+          flex-wrap:wrap;
+          z-index: 100;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          // display: block;
+          white-space: normal;
+          background: #fff;
+          border-radius: 4px;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        }
+        .more-but{
+          right: 0;
+          top: -44px;
+          position: absolute;
+        }
+        
+      }
+    }
+    
+  }
+}
+
+ // 内容样式
+.articlelist-page{
+    // padding: 20px;
+    // max-width: 960px;
+    width:100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .article-list{
+      padding-top: 30px;
+      max-width: 960px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    //   border-radius: 10px;
+       section{
+        //   background:$bs-white;
+        //   border-radius: 10px;
+          margin-bottom: 10px;
+          margin: 10px;
+          width:100%;
+          padding:10px;
+		//   box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
+		//   box-shadow: 0 2px 26px 0 rgba(133,153,171,.1);
+		//   border:1px solid rgba(133,153,171,.2);
+          time{
+              line-height: 24px;
+              font-weight: bold;
+              display: block;
+              margin: 0 0 10px;
+              color:$bs-lighter-text
+          }
+          h3{
+            color: $bs-dark-text;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 16px;
+            cursor: pointer;
+            &:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: $bs-light-color;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: 0.4s ease-in-out;
+                transition: 0.4s ease-in-out;
+            }
+            &:hover:after{
+                visibility:initial;
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+            }
+          }
+          .footer{
+            padding: 12px 0px 8px;
+          }
+          
+        }
+	}
+	.loadmore{
+		text-align: center;
+		margin-top: 20px;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-self: center;
+		button{
+			font-size: 14px;
+		    letter-spacing: 3px;
+			min-width: 200px;
+			padding:0 20px;
+			// font-weight: bold;
+		}
+	}
+}
+
+// nav style start
+
+
+
+
+
+
+
 .cl-effect-1 a{
   -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
 }
@@ -1061,163 +1238,7 @@ export default {
 }
 
 
-header{
-  background: $white-back;
-  width: 100%;
-//   padding:20px 0;
-  border-bottom: 2px solid $bs-main;
-  .header-inner{
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0 auto;
-    color: $bs-main;
-    h2{
-	  margin-top: 10px;
-      box-sizing: border-box;
-      font-size: 20px;;
-	  color:$bs-normal-text;
-	  color: $bs-main;
-    }
-    .nav-box{
-      display: flex;
-      flex-direction: row;
-      margin-top: 20px;
-      position: relative;
-	  font-size: 16px;
-	  padding: 10px 0;
-      ul{
-        transition: 0.2s ease-in-out;
-        flex: 1;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        list-style: none;
-        color:$bs-light-color;
-        // overflow: hidden;
-        li,a{
-          // margin: 10px;
-        //   padding:0 10px;
-          box-sizing: border-box;
-          position: relative;
-          text-align: center;
-          white-space: nowrap;
-          line-height: 40px;
-          min-width: 80px;
-          display: block;
-          cursor: pointer;
-          color:$bs-nav-text;
-        }
-      }
-      .more-but{
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        position: absolute;
-        right: 0;
-        top: 0;
-        background: #fff;
-        cursor: pointer;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        .icon{
-          font-size: 30px;
-        }
-      }
-      &.expand{
-        ul{
-          flex-wrap:wrap;
-          z-index: 100;
-          width: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          // display: block;
-          white-space: normal;
-          background: #fff;
-          border-radius: 4px;
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-        }
-        .more-but{
-          right: 0;
-          top: -44px;
-          position: absolute;
-        }
-        
-      }
-    }
-    
-  }
-}
 
- // 内容样式
-.articlelist-page{
-    // padding: 20px;
-    // max-width: 960px;
-    width:100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    .article-list{
-      padding-top: 30px;
-      max-width: 960px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-    //   border-radius: 10px;
-       section{
-        //   background:$white-back;
-        //   border-radius: 10px;
-          margin-bottom: 10px;
-          margin: 10px;
-          width:100%;
-          padding:10px;
-		//   box-shadow: 0 0px 20px rgba(99, 103, 107, 0.1);
-		//   box-shadow: 0 2px 26px 0 rgba(133,153,171,.1);
-		//   border:1px solid rgba(133,153,171,.2);
-          time{
-              line-height: 24px;
-              font-weight: bold;
-              display: block;
-              margin: 0 0 10px;
-              color:$bs-lighter-text
-          }
-          h3{
-            color: $bs-dark-text;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 16px;
-            cursor: pointer;
-            &:after {
-                content: "";
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                bottom: 0;
-                left: 0;
-                background-color: $bs-light-color;
-                visibility: hidden;
-                -webkit-transform: scaleX(0);
-                transform: scaleX(0);
-                -webkit-transition: 0.4s ease-in-out;
-                transition: 0.4s ease-in-out;
-            }
-            &:hover:after{
-                visibility:initial;
-                -webkit-transform: scaleX(1);
-                transform: scaleX(1);
-            }
-          }
-          .footer{
-            padding: 12px 0px 8px;
-          }
-          
-        }
-    }
-}
 
 
 </style>
