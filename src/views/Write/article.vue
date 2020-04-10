@@ -21,23 +21,27 @@
         <div class="selected_tips">
           <!-- <label for="describe">当前选择</label> -->
           <ul>
-            <li v-for="(tag,index) in selectedTags" :key="'tag'+index">
-              {{tag}}
-              <span @click="removeTag(tag)" class="removeTag">x</span>
-            </li>
+            <transition-group name="list-complete" tag="p">
+              {{selectedTags}}
+              <li v-for="(tag) in selectedTags" :key="tag">
+                {{tag}}
+                <span @click="removeTag(tag)" class="removeTag">x</span>
+              </li>
+            </transition-group>
           </ul>
         </div>
 
         <div class="tip_input">
           <input v-model="tagVal" placeholder="请输入标签名称" name="describe" type="text" />
-          <button @click="addTag" class="bs-button">
+          <button @click="addTag" class="bs-button addtag-but">
             <span>添加标签</span>
           </button>
         </div>
         <div>
+
           <!-- <label>推荐标签</label> -->
           <ul class="recommend_tips">
-            <li v-for="(tag,index) in recommentTags" @click="selectTag(tag.label)" :key="'recomment_tag'+index" :class="['bs-tag',{'selected':tag.selected}]">{{tag.label}}</li>
+            推荐标签：<li v-for="(tag,index) in recommentTags" @click="selectTag(tag.label)" :key="'recomment_tag'+index" :class="['bs-tag',{'selected':tag.selected}]">{{tag.label}}</li>
           </ul>
         </div>
 
@@ -63,6 +67,9 @@ export default {
   },
   data() {
     return {
+
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      nextNum: 10,
       //   teg
       tagVal: "",
       // 当前选中的标签
@@ -98,14 +105,18 @@ export default {
   methods: {
     // 删除标签
     removeTag(tag) {
-      this.selectedTags = this.selectedTags.filter(item => item != tag);
-      let index = this.recommentTags.findIndex(item => item.label == tag);
-      if (index != -1) {
-        this.$set(this.recommentTags[index], 'selected', false);
+      let selectedIndex = this.selectedTags.findIndex(item => item == tag);
+      this.selectedTags.splice(selectedIndex, 1)
+      let recommentIndex = this.recommentTags.findIndex(item => item.label == tag);
+      if (recommentIndex != -1) {
+        this.$set(this.recommentTags[recommentIndex], 'selected', false);
       }
     },
     //添加标签
     addTag(tags) {
+      if (!tags) {
+        return false
+      }
       if (tags && Array.isArray(tags)) {
         this.selectedTags = [...this.selectedTags, ...tags]
       } else {
@@ -144,6 +155,19 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.list-complete-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-complete-enter-active,
+.list-complete-leave-active {
+  transition: all 1s;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(10px);
+}
 .write-page {
   padding: 20px;
   margin-top: 20px;
@@ -166,10 +190,10 @@ export default {
       input {
         margin-bottom: 0;
       }
-      button {
-        padding: 0 20px;
-        margin-left: 10px;
-      }
+    }
+    .addtag-but {
+      padding: 0 20px;
+      margin-left: 10px;
     }
   }
   .recommend_tips {
@@ -192,7 +216,7 @@ export default {
         background: $bs-main;
         color: #fff;
         border-radius: 4px;
-        display: inline;
+        display: inline-block;
         padding: 2px 15px;
         font-size: 12px;
         position: relative;
