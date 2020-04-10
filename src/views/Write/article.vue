@@ -1,5 +1,5 @@
 <template>
-  <div class="Write">
+  <div class="write-page bs-outline">
     <form action="#" class="write_form">
       <div class="write_group">
         <label for="title">标题</label>
@@ -18,10 +18,42 @@
       </div>
       <div class="write_group">
         <label for="describe">标签</label>
+        <div>
+          <!-- <label>推荐标签</label> -->
+          <ul class="recommend_tips">
+            <li class="bs-tag">nodejs</li>
+            <li class="bs-tag">javascript</li>
+          </ul>
+        </div>
+        <div class="tip_input">
+          <input placeholder="请输入标签名称" name="describe" type="text" />
+          <button class="bs-button">
+            <span>添加标签</span>
+          </button>
+        </div>
+
+        <div class="selected_tips">
+          <!-- <label for="describe">当前选择</label> -->
+          <ul>
+            <li>
+              巴拉
+              <span>x</span>
+            </li>
+            <li>
+              巴拉
+              <span>x</span>
+            </li>
+            <li>
+              巴拉
+              <span>x</span>
+            </li>
+          </ul>
+        </div>
+
       </div>
-      <div>
-        <h4>内容</h4>
-        <mavon-editor v-model="commentContent" ref="md" @change="changeComment" style="min-height: 600px" />
+      <div class="write_group">
+        <label>内容</label>
+        <mavon-editor class="bs-outline" v-model="commentContent" ref="md" @change="changeComment" style="min-height: 600px" />
       </div>
       <div>
         <button class="bs-button">
@@ -61,4 +93,73 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.write-page {
+  padding: 20px;
+  margin-top: 20px;
+  .write_group {
+    label {
+      font-size: 13px;
+      color: #8599ab;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    input,
+    select {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .tip_input {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+      input {
+        margin-bottom: 0;
+      }
+      button {
+        padding: 0 20px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .recommend_tips {
+    display: flex;
+    li {
+      margin-right: 10px;
+      list-style: none;
+      cursor: pointer;
+      //   display: inline;
+    }
+  }
+  .selected_tips {
+    margin-bottom: 30px;
+    ul {
+      li {
+        list-style: none;
+        background: $bs-main;
+        color: #fff;
+        border-radius: 4px;
+        display: inline;
+        padding: 2px 15px;
+        font-size: 12px;
+        position: relative;
+        margin-right: 10px;
+        span {
+          position: absolute;
+          cursor: pointer;
+          width: 10px;
+          height: 10px;
+          top: 50%;
+          right: 5px;
+          margin-top: -5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+.v-note-wrapper {
+  z-index: 77;
+}
 </style>

@@ -12,6 +12,12 @@ const routes: RouteConfig[] = [
     redirect: "/articlelist",
     children: [
       {
+        path: "/write",
+        name: "write",
+        component: () =>
+          import(/* webpackChunkName: "signin" */ "../views/Write/article.vue")
+      },
+      {
         path: "/articlelist",
         name: "Articlelist",
         component: () =>
@@ -31,12 +37,7 @@ const routes: RouteConfig[] = [
       }
     ]
   },
-  {
-    path: "/write",
-    name: "write",
-    component: () =>
-      import(/* webpackChunkName: "signin" */ "../views/Write/article.vue")
-  },
+
   {
     path: "/signin",
     name: "signin",
