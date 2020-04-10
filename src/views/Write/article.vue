@@ -1,6 +1,6 @@
 <template>
   <div class="write-page bs-outline">
-    <form action="#" class="write_form">
+    <form action="" class="write_form">
       <div class="write_group">
         <label for="title">标题</label>
         <input name="title" type="text" />
@@ -18,35 +18,26 @@
       </div>
       <div class="write_group">
         <label for="describe">标签</label>
-        <div>
-          <!-- <label>推荐标签</label> -->
-          <ul class="recommend_tips">
-            <li class="bs-tag">nodejs</li>
-            <li class="bs-tag">javascript</li>
-          </ul>
-        </div>
-        <div class="tip_input">
-          <input placeholder="请输入标签名称" name="describe" type="text" />
-          <button class="bs-button">
-            <span>添加标签</span>
-          </button>
-        </div>
-
         <div class="selected_tips">
           <!-- <label for="describe">当前选择</label> -->
           <ul>
-            <li>
-              巴拉
-              <span>x</span>
+            <li v-for="(tag,index) in selectedTags" :key="'tag'+index">
+              {{tag}}
+              <span @click="removeTag(tag)" class="removeTag">x</span>
             </li>
-            <li>
-              巴拉
-              <span>x</span>
-            </li>
-            <li>
-              巴拉
-              <span>x</span>
-            </li>
+          </ul>
+        </div>
+
+        <div class="tip_input">
+          <input v-model="tagVal" placeholder="请输入标签名称" name="describe" type="text" />
+          <button @click="addTag" class="bs-button">
+            <span>添加标签</span>
+          </button>
+        </div>
+        <div>
+          <!-- <label>推荐标签</label> -->
+          <ul class="recommend_tips">
+            <li v-for="(tag,index) in recommentTags" @click="selectTag(tag.label)" :key="'recomment_tag'+index" :class="['bs-tag',{'selected':tag.selected}]">{{tag.label}}</li>
           </ul>
         </div>
 
@@ -72,11 +63,71 @@ export default {
   },
   data() {
     return {
+      //   teg
+      tagVal: "",
+      // 当前选中的标签
+      selectedTags: [
+        "javascrit",
+        "html",
+        "node",
+        "php"
+      ],
+      // 提供标签
+      recommentTags: [
+        {
+          label: "选择1",
+          selected: false
+        },
+        {
+          label: "选择2",
+          selected: false
+        },
+        {
+          label: "选择3",
+          selected: false
+        },
+        {
+          label: "选择4",
+          selected: false
+        },
+      ],
       commentContent: '', // 输入的markdown
       conmentHtml: '',    // 及时转的html
     }
   },
   methods: {
+    // 删除标签
+    removeTag(tag) {
+      this.selectedTags = this.selectedTags.filter(item => item != tag);
+      let index = this.recommentTags.findIndex(item => item.label == tag);
+      if (index != -1) {
+        this.$set(this.recommentTags[index], 'selected', false);
+      }
+    },
+    //添加标签
+    addTag(tags) {
+      if (tags && Array.isArray(tags)) {
+        this.selectedTags = [...this.selectedTags, ...tags]
+      } else {
+        this.selectedTags.push(this.tagVal)
+        this.tagVal = ""
+      }
+      this.selectedTags = [...new Set(this.selectedTags)];
+
+    },
+    //选择推荐标签
+    selectTag(tag) {
+      let index = this.recommentTags.findIndex(item => item.label == tag)
+      if (!this.recommentTags[index]['selected']) {
+        this.$set(this.recommentTags[index], 'selected', !this.recommentTags[index]['selected']);
+      }
+      let addTag = this.recommentTags.map(item => {
+        if (item.selected) {
+          return item.label
+        }
+      }).filter(item => item);
+      this.addTag(addTag)
+    },
     // 所有操作都会被解析重新渲染
     changeComment(value, render) {
       console.log(value);
@@ -123,15 +174,18 @@ export default {
   }
   .recommend_tips {
     display: flex;
+    margin-bottom: 30px;
     li {
       margin-right: 10px;
       list-style: none;
       cursor: pointer;
-      //   display: inline;
+      &.selected {
+        color: $bs-lighter-text;
+      }
     }
   }
   .selected_tips {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     ul {
       li {
         list-style: none;
