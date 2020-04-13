@@ -25,11 +25,20 @@
         <span class="sign__text"><a href="forgot.html">Forgot password?</a></span>
       </form>
     </div>
+    <StarSky></StarSky>
   </div>
 </template>
 <script>
+import StarSky from "@src/components/StarSky"
 export default {
-  name: "signup"
+  name: "signup",
+  components: {
+    StarSky,
+  },
+  methods: {
+  },
+  mounted() {
+  }
 }
 </script>
 <style lang="scss">
