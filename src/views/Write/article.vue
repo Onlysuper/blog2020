@@ -202,6 +202,7 @@ export default {
   .recommend_tips {
     display: flex;
     margin-bottom: 30px;
+    flex-wrap: wrap;
     li {
       margin-right: 10px;
       list-style: none;

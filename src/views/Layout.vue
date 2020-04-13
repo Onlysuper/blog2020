@@ -9,8 +9,8 @@
           <img src="../assets/images/admin-head.png">
         </div>
         <div>
-          <p class="nick-name">Dunizb</p>
-          <p class="sign-text">dunizb@foxmail.com</p>
+          <p class="nick-name">不二</p>
+          <p class="sign-text">buer@foxmail.com</p>
         </div>
       </header>
       <div class="option">
