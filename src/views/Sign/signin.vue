@@ -22,11 +22,37 @@
         <span class="sign__text"><a href="forgot.html">Forgot password?</a></span>
       </form>
     </div>
+    <div class="stars">
+      <div class="star" v-for='(start,index) in startNum' :style="startStyle[index]" :key="'start'+start"></div>
+    </div>
   </div>
 </template>
 <script>
 export default {
-  name: "signin"
+  name: "signin",
+  data() {
+    return {
+      startNum: 800,// 星星个数
+      startSpacec: 800,// 星星个数
+      startStyle: []
+    }
+  },
+  mounted() {
+    let startStyle = [];
+    for (var i = 0; i < this.startNum; i++) {
+      //   console.log('这里');
+      var s = 0.2 + (Math.random() * 1);
+      var curR = this.startSpacec + (Math.random() * 300);
+      startStyle.push(
+        {
+          transformOrigin: "0 0 " + curR + "px",
+          transform: " translate3d(0,0,-" + curR + "px) rotateY(" + (Math.random() * 360) + "deg) rotateX(" + (Math.random() * -50) + "deg) scale(" + s + "," + s + ")"
+        }
+      )
+
+    }
+    this.startStyle = startStyle;
+  }
 }
 </script>
 <style lang="scss">
@@ -96,56 +122,6 @@ export default {
         }
       }
     }
-    // input:checked {
-    //   position: absolute;
-    //   left: -9999px;
-    //   & + label {
-    //     margin-left: 20px;
-    //     font-size: 13px;
-    //     color: #8599ab;
-    //     font-weight: 400;
-    //     position: relative;
-    //     cursor: pointer;
-    //     padding-left: 35px;
-    //     line-height: 20px;
-    //     margin: 0;
-    //     &::before {
-    //       content: "";
-    //       position: absolute;
-    //       left: 0;
-    //       top: 0;
-    //       width: 20px;
-    //       height: 20px;
-    //       background-color: #fafafa;
-    //       -webkit-border-radius: 4px;
-    //       border-radius: 4px;
-    //       border: 1px solid rgba(133, 153, 171, 0.2);
-    //     }
-    //     &::after {
-    //       font-family: ionicons;
-    //       content: "\f3ff";
-    //       position: absolute;
-    //       left: 0;
-    //       top: 0;
-    //       width: 20px;
-    //       height: 20px;
-    //       font-size: 22px;
-    //       line-height: 20px;
-    //       text-align: center;
-    //       -webkit-transition: 0.4s;
-    //       -moz-transition: 0.4s;
-    //       transition: 0.4s;
-    //       color: #3796f6;
-    //     }
-    //   }
-    // }
-
-    // &.check {
-    //   display: flex;
-    //   flex-direction: row;
-    //   align-items: center;
-
-    // }
   }
   .sign__input {
     width: 100%;
@@ -179,5 +155,55 @@ export default {
       width: 60px;
     }
   }
+}
+
+body {
+  background: radial-gradient(
+    200% 100% at bottom center,
+    #f7f7b6,
+    #e96f92,
+    #75517d,
+    #1b2947
+  );
+  background: radial-gradient(
+    220% 105% at top center,
+    #1b2947 10%,
+    #75517d 40%,
+    #e96f92 65%,
+    #f7f7b6
+  );
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);
+  }
+  100% {
+    transform: perspective(400px) rotateZ(20deg) rotateX(-40deg)
+      rotateY(-360deg);
+  }
+}
+.stars {
+  transform: perspective(500px);
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 0;
+  perspective-origin: 50% 100%;
+  left: 50%;
+  animation: rotate 90s infinite linear;
+}
+
+.star {
+  width: 2px;
+  height: 2px;
+  background: #f7f7b6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0 -300px;
+  transform: translate3d(0, 0, -300px);
+  backface-visibility: hidden;
 }
 </style>
