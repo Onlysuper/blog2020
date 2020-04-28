@@ -9,34 +9,18 @@
           <img src="../assets/images/admin-head.png">
         </div>
         <div>
-          <p class="nick-name">不二</p>
+          <p class="nick-name">una</p>
           <p class="sign-text">buer@foxmail.com</p>
         </div>
       </header>
       <div class="option">
         <ul>
-          <li class="active">
-            <router-link to="/">
-              <p>首页</p>
-            </router-link>
-          </li>
-          <li><img src="images/works.png" alt="">
-            <p>笔记</p>
-          </li>
-          <li>
-            <router-link to="/comments">
-              <p>留言</p>
-            </router-link>
-          </li>
-          <!-- <li><img src="images/release.png" alt="">
-                  <p>生活</p>
-               </li> -->
-          <!-- <li><img src="images/collection.png" alt="">
-                  <p>英语</p>
-               </li> -->
-          <li><img src="images/setup.png" alt="">
-            <p>设置</p>
-          </li>
+          <!-- <li v-for="menu in menus" :key="menu" class="active"> -->
+          <router-link v-for="(menu) in menus" :key="menu.name" :to="menu.url">
+            <p>{{menu.name}}</p>
+          </router-link>
+          <!-- </li> -->
+
         </ul>
       </div>
     </aside>
@@ -85,6 +69,32 @@ export default {
   name: 'Layout',
   data() {
     return {
+      menus: [
+        {
+          url: "/articlelist",
+          name: "HOME"
+        },
+        {
+          url: "/notes",
+          name: "NOTES"
+        },
+        {
+          url: "/comments",
+          name: "MESSAGE"
+        },
+        {
+          url: "/life",
+          name: "LIFE"
+        },
+        {
+          url: "/english",
+          name: "ENGLISH"
+        },
+        {
+          url: "/about",
+          name: "ABOUT"
+        }
+      ],
       searchFocus: false,
       scrollTop: 0,// 滚动位置
       screenWidth: document.documentElement.clientWidth,//屏幕宽度
@@ -446,32 +456,42 @@ export default {
     padding-top: 20px;
     overflow: auto;
     user-select: none;
-    ul li {
-      display: flex;
-      align-items: center;
+    ul {
+      //   display: flex;
+      //   align-items: center;
       width: 100%;
       box-sizing: border-box;
       padding: 0 20px;
-      cursor: pointer;
-      color: $bs-normal-text;
-      transform: translateZ(0);
-      position: relative;
-      transition-property: color;
-      transition-duration: 0.4s;
-      transition: all 1s;
-      transform: translate(0, 0);
-      line-height: 44px;
-      font-size: 14px;
-      font-weight: bold;
-      &.active {
-        background: $bs-active-back;
-      }
       a {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px;
+        cursor: pointer;
+        color: $bs-normal-text;
+        transform: translateZ(0);
+        position: relative;
+        transition-property: color;
+        transition-duration: 0.4s;
+        transition: all 1s;
+        transform: translate(0, 0);
+        line-height: 44px;
+        font-size: 14px;
+        font-weight: bold;
         color: inherit;
         text-decoration: none;
-      }
-      &:hover {
-        color: $bs-main;
+        &.active {
+          background: $bs-active-back;
+          color: $bs-main;
+        }
+        // a {
+        //   color: inherit;
+        //   text-decoration: none;
+        // }
+        &:hover {
+          color: $bs-main;
+        }
       }
     }
   }
