@@ -5,17 +5,9 @@
         <h2 class="bs-page-title">文章</h2>
         <nav :class="['nav-box',{expand:moreTagsShow}]">
           <ul :class="{'cl-effect-1':!moreTagsShow}">
-            <a data-hover="Desultory">
+            <a @click="selecteTag(tag)" v-for="(tag) in tags" :key="'tag'+tag.name" :class="{active:selectedTag ==tag.name}" data-hover="Desultory">
               <!-- 标签 -->
-              <span>javascript</span>
-            </a>
-            <a data-hover="Desultory">
-              <!-- 标签 -->
-              <span>nodejs</span>
-            </a>
-            <a data-hover="Desultory">
-              <!-- 标签 -->
-              <span>php</span>
+              <span>{{tag.name}}</span>
             </a>
           </ul>
           <div @click="moreTags" class="more-but">
@@ -70,9 +62,21 @@ export default {
   data() {
     return {
       moreTagsShow: false,
+      selectedTag: "javascript",
+      tags: [
+        {
+          name: "javascript",
+        },
+        {
+          name: "nodejs",
+        }
+      ],
     }
   },
   methods: {
+    selecteTag(tag) {
+      this.selectedTag = tag.name
+    },
     toAricle() {
       this.$router.push({
         name: 'Articledetail'

@@ -15,7 +15,7 @@
           <input id="remember" name="remember" type="checkbox" checked="checked" />
           <label for="remember">Remember Me</label>
         </div>
-        <button class="sign__btn bs-button full" type="button">
+        <button @click="signIn" class="sign__btn bs-button full" type="button">
           <span>登录</span>
         </button>
         <span class="sign__text">Don't have an account? <a href="signup.html">Sign up!</a></span>
@@ -33,8 +33,13 @@ export default {
     StarSky,
   },
   data() {
-    return {
-
+    return {}
+  },
+  methods: {
+    signIn() {
+      this.$router.push({
+        path: "articlelist"
+      })
     }
   }
 }
