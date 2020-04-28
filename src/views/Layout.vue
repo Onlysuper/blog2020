@@ -1,5 +1,6 @@
 <template>
-  <div class="wrapper" :style="{left:drawerShow||screenWidth<=1204?'0':'-200px'}">
+  <div class="wrapper" :style="{left:drawerShow||(screenWidth<=1204)?'0':'-200px'}">
+    <!-- <aside id="menu" :class="['sidebar',{show:drawerShow}]"> -->
     <aside id="menu" :class="['sidebar',{show:drawerShow}]">
       <header>
         <ul class="bg-bubbles">
@@ -99,6 +100,7 @@ export default {
       scrollTop: 0,// 滚动位置
       screenWidth: document.documentElement.clientWidth,//屏幕宽度
       drawerShow: false,
+      clickDrawerShow: false,
       //是否显示回到顶部
       backTopShow: false,
       // 是否允许操作返回顶部
@@ -146,10 +148,13 @@ export default {
       }, 1)
     },
     winSizeChange(val) {
+      //   this.drawerShow = val > 1204
       this.drawerShow = val > 1204
     },
     drawClick() {
       this.drawerShow = !this.drawerShow
+      //   this.clickDrawerShow = this.drawerShow;
+      //   this.clickDrawerShow = !this.clickDrawerShow
     },
     goSign() {
       this.$router.push({
@@ -165,6 +170,7 @@ export default {
   mounted() {
     var _this = this;
     let winWidth = document.documentElement.clientWidth
+    console.log('winWidth', winWidth);
     _this.winSizeChange(winWidth)
     window.onresize = function () { // 定义窗口大小变更通知事件
       _this.screenWidth = document.documentElement.clientWidth; //窗口宽度
@@ -591,7 +597,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 1240px) {
+@media screen and (max-width: 1204px) {
   #main {
     left: 0;
     .oparte {

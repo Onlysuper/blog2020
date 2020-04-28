@@ -1,7 +1,7 @@
 <template>
   <article class="articledetail-page">
-    <div class="detail-inner width-limit">
-      <div class="detail-card">
+    <div class="detail-inner bs-width-limit">
+      <div class="bs-separate-left">
         <div class="content bs-outline">
           <h1>小技巧|使用Vue.js的Mixins复用你的代码</h1>
           <div class="meta">
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <aside>
+      <aside class="bs-aside-right">
         <nav class="top-warp bs-outline">
           <h4>TOC</h4>
           <ol>
@@ -85,19 +85,7 @@ export default {
   .detail-inner {
     display: flex;
   }
-  .detail-card {
-    // padding-top: 20px;
-    position: relative;
-    width: 80%;
-    flex: 1;
-    box-sizing: border-box;
-    height: auto;
-    float: left;
-    &::after {
-      content: "";
-      display: block;
-      clear: both;
-    }
+  .bs-separate-left {
     h2 {
       font-size: 32px;
     }
@@ -110,21 +98,12 @@ export default {
       }
     }
     .content {
-      margin: 10px;
-      // margin-top: px;
-      box-sizing: border-box;
-      padding: 10px;
       p {
         margin-bottom: 30px;
       }
     }
   }
   aside {
-    width: 200px;
-    min-width: 200px;
-    flex: 0 0 200px;
-    float: left;
-    padding-top: 20px;
     .top-warp {
       position: fixed;
       margin-left: 20px;
