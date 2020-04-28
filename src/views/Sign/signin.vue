@@ -1,5 +1,5 @@
 <template>
-  <div class="sign">
+  <div class="sign-page">
     <div class="container">
       <form action="#" class="sign__form">
         <a href="index.html" class="sign__logo">
@@ -45,7 +45,21 @@ export default {
 }
 </script>
 <style lang="scss">
-.sign {
+.sign-page {
+  background: radial-gradient(
+    200% 100% at bottom center,
+    #f7f7b6,
+    #e96f92,
+    #75517d,
+    #1b2947
+  );
+  background: radial-gradient(
+    220% 105% at top center,
+    #1b2947 10%,
+    #75517d 40%,
+    #e96f92 65%,
+    #f7f7b6
+  );
   display: block;
   position: relative;
   /* background: url(../img/bg.jpg) no-repeat center/cover; */

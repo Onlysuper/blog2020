@@ -7,7 +7,7 @@
           <li v-for="i in 6" :key="i"></li>
         </ul>
         <div class="head-img">
-          <img src="../assets/images/admin-head.png">
+          <img :src="headimg">
         </div>
         <div>
           <p class="nick-name">una</p>
@@ -65,11 +65,12 @@
 </template>
 
 <script>
-
+import headimg from "@/assets/images/admin-head.png";
 export default {
   name: 'Layout',
   data() {
     return {
+      headimg,
       menus: [
         {
           url: "/articlelist",
@@ -79,10 +80,10 @@ export default {
         //   url: "/notes",
         //   name: "NOTES"
         // },
-        // {
-        //   url: "/comments",
-        //   name: "MESSAGE"
-        // },
+        {
+          url: "/comments",
+          name: "MESSAGE"
+        },
         // {
         //   url: "/life",
         //   name: "LIFE"
