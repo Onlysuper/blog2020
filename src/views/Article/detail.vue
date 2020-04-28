@@ -1,6 +1,6 @@
 <template>
   <article class="articledetail-page">
-    <div class="detail-inner bs-width-limit">
+    <div class="container-inner bs-width-limit">
       <div class="bs-separate-left">
         <div class="content bs-outline">
           <h1>小技巧|使用Vue.js的Mixins复用你的代码</h1>
@@ -82,7 +82,7 @@ export default {
 // 内容样式
 .articledetail-page {
   width: 100%;
-  .detail-inner {
+  .container-inner {
     display: flex;
   }
   .bs-separate-left {

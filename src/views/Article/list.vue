@@ -2,7 +2,7 @@
   <div class="articlelist-page">
     <header>
       <div class="bs-width-limit header-inner">
-        <h2>标签: JavaScript</h2>
+        <h2 class="bs-page-title">文章</h2>
         <nav :class="['nav-box',{expand:moreTagsShow}]">
           <ul :class="{'cl-effect-1':!moreTagsShow}">
             <a data-hover="Desultory">
@@ -95,13 +95,13 @@ header {
     margin: 0 auto;
     color: $bs-main;
     padding: 0 20px;
-    h2 {
-      margin-top: 10px;
-      box-sizing: border-box;
-      font-size: 20px;
-      color: $bs-normal-text;
-      color: $bs-main;
-    }
+    // h2 {
+    //   margin-top: 10px;
+    //   box-sizing: border-box;
+    //   font-size: 20px;
+    //   color: $bs-normal-text;
+    //   color: $bs-main;
+    // }
     .nav-box {
       display: flex;
       flex-direction: row;
@@ -258,47 +258,6 @@ header {
 }
 
 // nav style start
-
-.cl-effect-1 a {
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-}
-.cl-effect-1 a::before,
-.cl-effect-1 a::after {
-  display: inline-block;
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-  transition: transform 0.3s, opacity 0.2s;
-}
-
-.cl-effect-1 a::before {
-  margin-right: 10px;
-  content: "[";
-  -webkit-transform: translateX(20px);
-  -moz-transform: translateX(20px);
-  transform: translateX(20px);
-}
-
-.cl-effect-1 a::after {
-  margin-left: 10px;
-  content: "]";
-  -webkit-transform: translateX(-20px);
-  -moz-transform: translateX(-20px);
-  transform: translateX(-20px);
-}
-.cl-effect-1 a:hover,
-.cl-effect-1 a:focus {
-  color: $bs-main !important;
-}
-.cl-effect-1 a:hover::before,
-.cl-effect-1 a:hover::after,
-.cl-effect-1 a:focus::before,
-.cl-effect-1 a:focus::after {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-  -moz-transform: translateX(0px);
-  transform: translateX(0px);
-}
 
 /* Effect 2: 3D rolling links, idea from http://hakim.se/thoughts/rolling-links */
 .cl-effect-2 a {

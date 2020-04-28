@@ -51,7 +51,7 @@
       </header>
       <div class="container">
         <div style="height:56px;width:100%"></div>
-        <router-view></router-view>
+        <router-view @click.native="tapLink"></router-view>
       </div>
     </main>
     <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
@@ -75,18 +75,18 @@ export default {
           url: "/articlelist",
           name: "HOME"
         },
-        {
-          url: "/notes",
-          name: "NOTES"
-        },
-        {
-          url: "/comments",
-          name: "MESSAGE"
-        },
-        {
-          url: "/life",
-          name: "LIFE"
-        },
+        // {
+        //   url: "/notes",
+        //   name: "NOTES"
+        // },
+        // {
+        //   url: "/comments",
+        //   name: "MESSAGE"
+        // },
+        // {
+        //   url: "/life",
+        //   name: "LIFE"
+        // },
         {
           url: "/english",
           name: "ENGLISH"
@@ -127,6 +127,10 @@ export default {
     },
   },
   methods: {
+    // 点击菜单
+    tapLink() {
+      this.drawerShow = false;
+    },
     // 页面滚动
     scrollFn() {
       this.scrollTop = this.$refs.scrollBox.scrollTop;

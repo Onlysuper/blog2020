@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 a {
   text-decoration: none;
   font-size: 14px;
@@ -33,6 +34,49 @@ select {
   color: #364e65;
   padding: 0 20px;
   display: flex;
+}
+.cl-effect-1 a {
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+}
+.cl-effect-1 a::before,
+.cl-effect-1 a::after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.cl-effect-1 a::before {
+  margin-right: 10px;
+  content: "[";
+  -webkit-transform: translateX(20px);
+  -moz-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+.cl-effect-1 a::after {
+  margin-left: 10px;
+  content: "]";
+  -webkit-transform: translateX(-20px);
+  -moz-transform: translateX(-20px);
+  transform: translateX(-20px);
+}
+.cl-effect-1 a:hover,
+.cl-effect-1 a:focus,
+.cl-effect-1 a.active {
+  color: $bs-main !important;
+}
+.cl-effect-1 a:hover::before,
+.cl-effect-1 a:hover::after,
+.cl-effect-1 a:focus::before,
+.cl-effect-1 a:focus::after,
+.cl-effect-1 a.active::before,
+.cl-effect-1 a.active::after {
+  opacity: 1;
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  transform: translateX(0px);
 }
 .bs-width-limit {
   max-width: 960px;
@@ -110,6 +154,13 @@ select {
   }
 }
 
+.bs-page-title {
+  margin-top: 10px;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: $bs-normal-text;
+  color: $bs-main;
+}
 .bs-tag {
   cursor: pointer;
   display: inline-block;
