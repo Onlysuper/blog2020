@@ -51,12 +51,12 @@
       </header>
       <div class="container">
         <div style="height:56px;width:100%"></div>
-        <router-view @click.native="tapLink"></router-view>
+        <router-view @click.native="drawerHide"></router-view>
       </div>
     </main>
     <div @click="drawClick" :class="['mask',{in:maskIn}]" id="mask"></div>
     <transition :duration="300">
-      <a c v-if="backTopShow" class="gotop bs-button" href="javascript:;" @click="goTop">
+      <a v-if="backTopShow" class="gotop bs-button" href="javascript:;" @click="goTop">
         <span class="icon iconfont icon-huidaodingbu"></span>
       </a>
     </transition>
@@ -129,8 +129,8 @@ export default {
   },
   methods: {
     // 点击菜单
-    tapLink() {
-      this.drawerShow = false;
+    drawerHide() {
+      //   this.drawerShow = false;
     },
     // 页面滚动
     scrollFn() {

@@ -8,7 +8,7 @@
               <img :src="comment.headimg">
             </div>
             <div class="text">
-              {{comment.content}}
+              <span>{{comment.content}}</span>
             </div>
             <div class="time">
               <time>
@@ -20,8 +20,7 @@
             <span> {{group.time}}</span>
           </div>
         </div>
-        <!-- 
-        <div class="division-line"></div> -->
+        <!-- <div class="division-line"></div> -->
       </template>
     </div>
   </div>
@@ -41,11 +40,23 @@
     display: flex;
     flex-direction: row;
     padding: 20px 0;
+    align-items: center;
     .head-img {
       flex: 0 0 100px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
     }
     .text {
       flex: 1;
+      span {
+        background: rgba(55, 150, 246, 0.1);
+        display: block;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        border-radius: 20px;
+        margin-right: 20px;
+      }
     }
     .time {
       flex: 0 0 80px;
